@@ -15,9 +15,9 @@ const resolvers = {
                 // return that data
                 return userData;
             }
-        // otherwise throw error
-        throw new AuthenticationError('Not logged in');
-      },
+            // otherwise throw error
+            throw new AuthenticationError('Not logged in');
+        },
 
         // GET all users
         users: async () => {
@@ -82,6 +82,17 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+
+        addVote: async (parent, { questionId, voteType }, context) => {
+            if (context.user) {
+                const updatedQuestion = await Question.findOneAndUpdate(
+                    { _id: questionId },
+                    { voteType: voteType++},
+                    { new: true, runValidators: true }
+                )
+                return updatedQuestion
+            }
+        }
     }
 }
 
