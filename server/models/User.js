@@ -2,7 +2,30 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from Question.js
-const questionSchema = require('./Question');
+const questionSchema = new Schema(
+  {
+    questionText: {
+      type: String,
+      required: true
+    },
+    answerA: {
+      type: String,
+      required: true
+    },
+    answerB: {
+      type: String,
+      required: true
+    },
+    voteA: {
+      type: Number,
+      required: true
+    },
+    voteB: {
+      type: Number,
+      required: true
+    }
+  }
+);
 
 const userSchema = new Schema(
   {
@@ -15,7 +38,7 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    // set questions to be an array pf data that adheres to the questionSchema
+    // set questions to be an array of data that adheres to the questionSchema
     questions: [questionSchema]
   },
   {
