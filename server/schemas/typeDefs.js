@@ -15,7 +15,7 @@ type Auth {
 
 type Question {
   _id: ID
-  question: String
+  questionText: String
   answerA: String
   answerB: String
   voteA: Int
@@ -31,7 +31,7 @@ type Query {
 type Mutation {
   addUser(userName: String!, email: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
-  addQuestion(question: String!, answerA: String!, answerB: String!): Question
+  addQuestion(questionText: String!, answerA: String!, answerB: String!): Question
   vote(voteA: Int!, voteB: Int!): Question
 }
 `;
