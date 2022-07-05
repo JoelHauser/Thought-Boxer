@@ -24,6 +24,11 @@ const questionSchema = new Schema(
       type: Number,
       required: true
     }
+  },
+  {
+    toJSON: {
+      virtuals: true
+    }
   }
 );
 
@@ -69,6 +74,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual('questionCount').get(function () {
   return this.questions.length;
 });
+
+questionSchema.virtual('voteCount').get(function () {
+  return (this.voteA + this.voteB);
+})
 
 const User = model('User', userSchema);
 
