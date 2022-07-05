@@ -5,7 +5,7 @@ type User {
   _id: ID
   username: String
   password: String
-  questions: [Question]
+  voted: [String]
 }
 
 type Auth {
@@ -15,6 +15,7 @@ type Auth {
 
 type Question {
   _id: ID
+  createdBy: String
   questionText: String
   answerA: String
   answerB: String

@@ -6,6 +6,10 @@ const questionSchema = new Schema(
       type: String,
       required: true
     },
+    createdBy: {
+      type: String,
+      required: true
+    },
     answerA: {
       type: String,
       required: true

@@ -10,8 +10,8 @@ const resolvers = {
             if (context.user) {
                 // find user where _id = current user _id
                 const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                .populate('questions')
+                    .select('-__v -password')
+                    .populate('questions')
                 // return that data
                 return userData;
             }
@@ -71,14 +71,14 @@ const resolvers = {
         addQuestion: async (parent, args, context) => {
             if (context.user) {
                 const question = await Question.create({ ...args, username: context.user.username });
-          
+
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $push: { questions: question._id } },
                     { new: true }
                 );
-          
-              return question;
+
+                return question;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -87,7 +87,7 @@ const resolvers = {
             if (context.user) {
                 const updatedQuestion = await Question.findOneAndUpdate(
                     { _id: questionId },
-                    { voteType: voteType++},
+                    { voteType: voteType++ },
                     { new: true, runValidators: true }
                 )
                 return updatedQuestion
