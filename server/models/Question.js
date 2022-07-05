@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const questionSchema = new Schema(
   {
@@ -22,7 +22,17 @@ const questionSchema = new Schema(
       type: Number,
       required: true
     }
+  }, {
+    toJSON: {
+      virtuals: true
+    }
   }
 );
 
-module.exports = questionSchema;
+questionSchema.virtual('voteCount').get(function() {
+  return (this.voteA + this.voteB);
+})
+
+const Question = model('Question', questionSchema);
+
+module.exports = Question;
