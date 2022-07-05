@@ -19,19 +19,19 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        // GET all users
-        users: async () => {
-            return User.find()
-            .select('-__v -password')
-            .populate('questions')
-        },
+        // // GET all users
+        // users: async () => {
+        //     return User.find()
+        //     .select('-__v -password')
+        //     .populate('questions')
+        // },
 
-        // GET single user by username
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-            .select('-__v -password')
-            .populate('questions')
-        },
+        // // GET single user by username
+        // user: async (parent, { username }) => {
+        //     return User.findOne({ username })
+        //     .select('-__v -password')
+        //     .populate('questions')
+        // },
 
         // if username is present, GET all their questions, if not GET all questions
         questions: async (parent, { username }) => {
