@@ -15,3 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+header {
+  text-align: center;
+  height: 10vh;
+}
+
+.userColumn {
+  border-right:solid 1px #000;
+  height: 90vh;
+}
+

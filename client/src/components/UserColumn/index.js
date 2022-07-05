@@ -2,7 +2,10 @@ import React from 'react';
 
 function UserColumn() {
     return(
-        <div>Login</div>
+        <div>
+            <p>Login</p>
+            <p>Sign Up</p>
+        </div>
     )
 }
 

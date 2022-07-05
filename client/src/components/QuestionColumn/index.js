@@ -2,7 +2,7 @@ import React from 'react';
 
 function QuestionColumn() {
     return(
-        <div>User</div>
+        <div>Who right tho</div>
     )
 }
 
