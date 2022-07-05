@@ -34,4 +34,6 @@ type Mutation {
   addQuestion(question: String!, answerA: String!, answerB: String!): Question
   vote(voteA: Int!, voteB: Int!): Question
 }
-`
+`;
+
+module.exports = typeDefs;
