@@ -29,7 +29,7 @@ type Query {
 }
 
 type Mutation {
-  addUser(userName: String!, email: String!, password: String!): Auth
+  addUser(username: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
   addQuestion(questionText: String!, answerA: String!, answerB: String!): Question
   addVote(voteA: Int!, voteB: Int!): Question
