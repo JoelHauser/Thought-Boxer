@@ -26,8 +26,7 @@ type Question {
 type Query {
   questions: [Question]
   question(_id: ID!): Question
-  myQuestions: Question
-  myVotes: User
+  me: User
 }
 
 type Mutation {
