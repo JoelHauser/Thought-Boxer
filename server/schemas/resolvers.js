@@ -5,23 +5,15 @@ const { User, Question } = require('../models');
 const resolvers = {
     Query: {
         // get users posted questions
-        myQuestions: async (parent, args, context) => {
+        me: async (parent, args, context) => {
             //if user is logged in
             if (context.user) {
-                const questionData = await Question.find(
-                    {createdBy: context.user._id}
-                )
-                return questionData;
+                const userData = await User.findOne({ _id: context.user._id })
+                .select('-__v -password')
+                .populate('questions')
+                .populate('votes')
             }
         },
-        // get users voted questions
-         myVotes: async (parent, args, context) => {
-            if (context.user) {
-                const voteData = await User.find(
-                    {voted: question._id}
-                )
-            }
-         },
 
         // if username is present, GET all their questions, if not GET all questions
         questions: async (parent, { username }) => {
@@ -64,7 +56,7 @@ const resolvers = {
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { questions: question._id } },
+                    { $push: { questions: question } },
                     { new: true }
                 );
 
@@ -75,9 +67,9 @@ const resolvers = {
 
         addVote: async (parent, { questionId, voteType }, context) => {
             if (context.user) {
-                const updatedQuestion = await Question.findOneAndUpdate(
-                    { _id: questionId },
-                    { voteType: voteType++ },
+                const updatedQuestion = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $inc: { votes: { voteType: 1}} },
                     { new: true, runValidators: true }
                 )
                 return updatedQuestion
