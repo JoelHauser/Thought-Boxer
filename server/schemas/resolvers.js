@@ -4,7 +4,7 @@ const { User, Question } = require('../models');
 
 const resolvers = {
     Query: {
-        // GET current user
+        // get users posted questions
         myQuestions: async (parent, args, context) => {
             //if user is logged in
             if (context.user) {
@@ -14,25 +14,12 @@ const resolvers = {
                 return questionData;
             }
         },
+        // get users voted questions
          myVotes: async (parent, args, context) => {
             if (context.user) {
                 const voteData = await User.find()
             }
          },
-
-        // // GET all users
-        // users: async () => {
-        //     return User.find()
-        //     .select('-__v -password')
-        //     .populate('questions')
-        // },
-
-        // // GET single user by username
-        // user: async (parent, { username }) => {
-        //     return User.findOne({ username })
-        //     .select('-__v -password')
-        //     .populate('questions')
-        // },
 
         // if username is present, GET all their questions, if not GET all questions
         questions: async (parent, { username }) => {
