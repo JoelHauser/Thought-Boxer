@@ -12,7 +12,6 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    // set questions to be an array of data that adheres to the questionSchema
     voted: [String]
   },
   {

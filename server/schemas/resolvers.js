@@ -5,19 +5,20 @@ const { User, Question } = require('../models');
 const resolvers = {
     Query: {
         // GET current user
-        me: async (parent, args, context) => {
+        myQuestions: async (parent, args, context) => {
             //if user is logged in
             if (context.user) {
-                // find user where _id = current user _id
-                const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
-                    .populate('questions')
-                // return that data
-                return userData;
+                const questionData = await Question.find(
+                    {createdBy: context.user._id}
+                )
+                return questionData;
             }
-            // otherwise throw error
-            throw new AuthenticationError('Not logged in');
         },
+         myVotes: async (parent, args, context) => {
+            if (context.user) {
+                const voteData = await User.find()
+            }
+         },
 
         // // GET all users
         // users: async () => {
