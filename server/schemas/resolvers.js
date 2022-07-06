@@ -17,7 +17,9 @@ const resolvers = {
         // get users voted questions
          myVotes: async (parent, args, context) => {
             if (context.user) {
-                const voteData = await User.find()
+                const voteData = await User.find(
+                    {voted: question._id}
+                )
             }
          },
 
