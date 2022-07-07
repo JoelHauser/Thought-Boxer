@@ -4,7 +4,7 @@ const { User, Question } = require('../models');
 
 const resolvers = {
     Query: {
-        // get users posted questions
+        // get current user's data
         me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
@@ -17,7 +17,7 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        // if username is present, GET all their questions, if not GET all questions
+        // get all the questions
         questions: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Question.find(params).sort({ createdAt: -1 });
@@ -77,23 +77,25 @@ const resolvers = {
                 )
 
                 if (voteType === 'voteA') {
-                    var updatedQuestion = await Question.findOneAndUpdate(
+                    let updatedQuestion = await Question.findOneAndUpdate(
                         { _id: questionId },
                         { $inc: { voteA: 1 } },
                         { new: true }
                     )
+                    return updatedQuestion
                 }
 
 
                 if (voteType === 'voteB') {
-                    var updatedQuestion = await Question.findOneAndUpdate(
+                    let updatedQuestion = await Question.findOneAndUpdate(
                         { _id: questionId },
                         { $inc: { voteB: 1 } },
                         { new: true }
                     )
+                    return updatedQuestion
                 }
+                throw new AuthenticationError('You need to be logged in!');
             }
-            return  updatedQuestion 
         }
     }
 }

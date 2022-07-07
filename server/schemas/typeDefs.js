@@ -6,6 +6,7 @@ type User {
   username: String
   password: String
   questions: [Question]
+  votes: [String]
 }
 
 type Auth {
