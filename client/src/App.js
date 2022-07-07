@@ -22,6 +22,7 @@ function App() {
             <div className="userColumn col-span-1">
               <UserColumn />
             </div>
+
             <div className="questionColumn col-span-6">
               <Routes>
                 <Route
