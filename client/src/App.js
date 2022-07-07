@@ -22,7 +22,7 @@ function App() {
             <div className="userColumn col-span-1">
               <UserColumn />
             </div>
-            <div classname="questionColumn col-span-2">
+            <div className="questionColumn col-span-2">
               <Routes>
                 <Route
                   path="/"
