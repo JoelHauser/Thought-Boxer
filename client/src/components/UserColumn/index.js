@@ -1,10 +1,18 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom';
 
 function UserColumn() {
     return(
         <div>
-            <p>Login</p>
-            <p>Sign Up</p>
+            <Link to="/login">
+                <p>Login</p>
+            </Link>
+            <Link to="/register">
+                <p>Register</p>
+            </Link>
+            <Link to="/questions">
+                <p>View Questions</p>
+            </Link>
         </div>
     )
 }
