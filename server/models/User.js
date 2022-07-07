@@ -18,7 +18,8 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'Question'
       }
-    ]
+    ],
+    votes: [String]
   },
   {
     // set this to use the virturals below
@@ -42,6 +43,16 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+// displays how many questions a user has posted
+userSchema.virtual('questionCount').get(function() {
+  return this.questions.length;
+})
+
+// displays how many times a user has voted
+userSchema.virtual('votedCount').get(function() {
+  return this.votes.length;
+})
 
 const User = model('User', userSchema);
 
