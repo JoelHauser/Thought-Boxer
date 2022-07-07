@@ -5,11 +5,11 @@ type User {
   _id: ID
   username: String
   password: String
-  voted: [String]
+  questions: [Question]
 }
 
 type Auth {
-  token: ID
+  token: ID!
   user: User
 }
 

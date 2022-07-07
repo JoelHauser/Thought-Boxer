@@ -6,13 +6,15 @@ const resolvers = {
     Query: {
         // get users posted questions
         me: async (parent, args, context) => {
-            //if user is logged in
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                .populate('questions')
-                .populate('votes')
+                    .select('-__v -password')
+                    .populate('questions')
+
+                return userData;
             }
+
+            throw new AuthenticationError('Not logged in');
         },
 
         // if username is present, GET all their questions, if not GET all questions
@@ -69,7 +71,7 @@ const resolvers = {
             if (context.user) {
                 const updatedQuestion = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $inc: { votes: { voteType: 1}} },
+                    { $inc: { votes: { voteType: 1 } } },
                     { new: true, runValidators: true }
                 )
                 return updatedQuestion
