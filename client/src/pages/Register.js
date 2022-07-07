@@ -7,7 +7,6 @@ function Register() {
     // const [addUser, { error }] = useMutation(ADD_USER);
     // const [formState, setFormState] = useState({
     //     username: '',
-    //     email: '',
     //     password: '',
     // });
     
@@ -18,7 +17,7 @@ function Register() {
             </h1>
             <form /*onSubmit={handleFormSubmit}*/>
                 <input
-                    className="form-input"
+                    className="form-input mx-1 text-center"
                     placeholder="Enter a Username"
                     name="username"
                     type="username"
@@ -27,7 +26,7 @@ function Register() {
                     // onChange={handleChange}
                 />
                 <input
-                    className="form-input"
+                    className="form-input mx-1 text-center"
                     placeholder="Choose a Password"
                     name="password"
                     type="password"
@@ -35,7 +34,7 @@ function Register() {
                     // value={formState.password}
                     // onChange={handleChange}
                 />
-                <button className="btn justify-center" type="submit">
+                <button className="btn w-1/4 d-block text-center border-2 rounded m-6" type="submit">
                     Submit
                 </button>
             </form>

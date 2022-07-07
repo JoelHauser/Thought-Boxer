@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 function UserColumn() {
     return(
-        <div>
+        <div className='text-center'>
             <Link to="/login">
-                <p>Login</p>
+                <p className='py-4'>Login</p>
             </Link>
             <Link to="/register">
-                <p>Register</p>
+                <p className='py-4'>Register</p>
             </Link>
             <Link to="/questions">
-                <p>View Questions</p>
+                <p className='py-4'>View Questions</p>
             </Link>
         </div>
     )
