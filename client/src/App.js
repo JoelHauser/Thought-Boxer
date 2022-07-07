@@ -46,7 +46,7 @@ function App() {
                   element={<Questions />}
                 />
                 <Route
-                  path="/question"
+                  path="/question/:id"
                   element={<SingleQuestionView />}
                 />
                 <Route

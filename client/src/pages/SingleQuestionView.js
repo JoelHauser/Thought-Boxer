@@ -1,11 +1,15 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import questions from '../pages/Questions';
+import { useLocation } from 'react-router-dom';
 
 function SingleQuestionView() {
+    
+    const { state } = useLocation();
+    
     return(
         <div>
-            <h3>Who right tho</h3>
-            <p>U right</p>
-            <p>They right</p>
+            <p>{state.questions.questionText}{" "}</p>
         </div>
     )
 }

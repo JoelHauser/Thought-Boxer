@@ -35,7 +35,3 @@ export const ADD_QUESTION = gql`
     }
   }
 `;
-
-export const ADD_VOTE = gql`
-  mutation addVote()
-`
