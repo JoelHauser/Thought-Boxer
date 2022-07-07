@@ -4,11 +4,19 @@ import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../utils/queries'
 
 function Questions() {
-    const { loading, data } = useQuery(QUERY_QUESTIONS);
-    const questions = data?.questions || [];
+    const questions = [
+        {
+            _id: 1,
+            questionText: "First question."
+        },
+        {
+            _id: 2,
+            questionText: "Second question."
+        }
+    ];
 
     if (!questions.length) {
-        
+        return <p>No questions have been asked yet!</p>
     }
     return(
         <div>
