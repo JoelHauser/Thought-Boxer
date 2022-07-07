@@ -49,16 +49,17 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect credentials');
             }
             const token = signToken(user);
+            console.log('logged in')
             return { token, user };
         },
 
         addQuestion: async (parent, args, context) => {
             if (context.user) {
-                const question = await Question.create({ ...args, username: context.user.username });
+                const question = await Question.create({ ...args, createdBy: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { questions: question } },
+                    { $push: { questions: question._id } },
                     { new: true }
                 );
 
@@ -69,13 +70,30 @@ const resolvers = {
 
         addVote: async (parent, { questionId, voteType }, context) => {
             if (context.user) {
-                const updatedQuestion = await User.findOneAndUpdate(
+                var userVote = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $inc: { votes: { voteType: 1 } } },
-                    { new: true, runValidators: true }
+                    { $push: { votes: questionId } },
+                    { new: true }
                 )
-                return updatedQuestion
+
+                if (voteType === 'voteA') {
+                    var updatedQuestion = await Question.findOneAndUpdate(
+                        { _id: questionId },
+                        { $inc: { voteA: 1 } },
+                        { new: true }
+                    )
+                }
+
+
+                if (voteType === 'voteB') {
+                    var updatedQuestion = await Question.findOneAndUpdate(
+                        { _id: questionId },
+                        { $inc: { voteB: 1 } },
+                        { new: true }
+                    )
+                }
             }
+            return  updatedQuestion 
         }
     }
 }

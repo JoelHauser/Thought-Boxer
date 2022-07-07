@@ -18,7 +18,8 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'Question'
       }
-    ]
+    ],
+    votes: [String]
   },
   {
     // set this to use the virturals below

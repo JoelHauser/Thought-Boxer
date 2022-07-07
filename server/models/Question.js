@@ -19,12 +19,10 @@ const questionSchema = new Schema(
       required: true
     },
     voteA: {
-      type: Number,
-      required: true
+      type: Number
     },
     voteB: {
-      type: Number,
-      required: true
+      type: Number
     }
   }, {
     toJSON: {
