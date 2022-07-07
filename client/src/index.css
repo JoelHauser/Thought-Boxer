@@ -31,6 +31,10 @@ header {
   min-height: 80vh;
 }
 
+.questionColumn {
+  text-align: center;
+}
+
 footer {
   height: 10vh;
   text-align: center;

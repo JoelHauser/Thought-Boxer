@@ -6,6 +6,7 @@ type User {
   username: String
   password: String
   questions: [Question]
+  votes: [String]
 }
 
 type Auth {
@@ -33,7 +34,7 @@ type Mutation {
   addUser(username: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
   addQuestion(questionText: String!, answerA: String!, answerB: String!): Question
-  addVote(voteA: Int!, voteB: Int!): Question
+  addVote(voteType: String!, questionId: String!): Question
 }
 `;
 
