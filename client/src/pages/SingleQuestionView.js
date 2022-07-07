@@ -1,15 +1,24 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import questions from '../pages/Questions';
-import { useLocation } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_QUESTION } from '../utils/queries';
 
-function SingleQuestionView() {
+const SingleQuestionView = (props) => {
+    const { id: questionId } = useParams();
+
+    const { loading, data } = useQuery(QUERY_QUESTION, {
+        variables: { id: questionId }
+    });
     
-    const { state } = useLocation();
+    const question = data?.question || {};
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
     
     return(
         <div>
-            <p>{state.questions.questionText}{" "}</p>
+            <p>{question.questionText}</p>
         </div>
     )
 }
