@@ -4,11 +4,11 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Register() {
-    // const [addUser, { error }] = useMutation(ADD_USER);
-    // const [formState, setFormState] = useState({
-    //     username: '',
-    //     password: '',
-    // });
+    const [addUser, { error }] = useMutation(ADD_USER);
+    const [formState, setFormState] = useState({
+        username: '',
+        password: '',
+    });
 
     // // update state based on form input changes
     // const handleChange = (event) => {
