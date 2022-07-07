@@ -23,22 +23,31 @@ const resolvers = {
             return Question.find(params).sort({ createdAt: -1 });
         },
 
-        // GET single question by _id
+        // get single question by _id
         question: async (parent, { _id }) => {
             return Question.findOne({ _id });
         }
     },
 
     Mutation: {
-        // POST new user to db
+        // create a new user
+        // expects:
+        //{
+        //  "username": "user1",
+        //  "password": "password1"
+        //}
         addUser: async (parent, args) => {
-            // create new user (and jwt token) with mutation params
             const user = await User.create(args);
             const token = signToken(user);
             return { token, user };
         },
 
-        // PUT/update logged-in status
+        // log a user in
+        // expects:
+        //{
+        //  "username": "user1",
+        //  "password": "password1"
+        //}
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
             if (!user) {
@@ -53,6 +62,14 @@ const resolvers = {
             return { token, user };
         },
 
+        // add a question, user must be logged in
+        // requires username and user._id from context/header
+        // expects:
+        //{
+        //  "questionText": "Will ketchup stick to the wall?",
+        //  "answerA": "Yes",
+        //  "answerB": "No"
+        //}
         addQuestion: async (parent, args, context) => {
             if (context.user) {
                 const question = await Question.create({ ...args, createdBy: context.user.username });
@@ -68,6 +85,14 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
+        // allows a user to vote on a question, user must be logged in
+        // requires user._id from context/header
+        // expects:
+        //{
+        //  "questionId": "<questionId>",
+        //  "voteType": "voteA" or "voteB" ONLY
+        // voteA === questionA / voteB === questionB
+        //}
         addVote: async (parent, { questionId, voteType }, context) => {
             if (context.user) {
                 var userVote = await User.findOneAndUpdate(
