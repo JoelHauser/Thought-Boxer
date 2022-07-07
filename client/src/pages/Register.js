@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
-// import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function Register() {
     // const [addUser, { error }] = useMutation(ADD_USER);
@@ -9,13 +9,35 @@ function Register() {
     //     username: '',
     //     password: '',
     // });
+
+    // // update state based on form input changes
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+
+    //     setFormState({
+    //         ...formState,
+    //         [name]: value,
+    //     });
+    // };
+
+    // // submit form
+    // const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     try {
+    //         const { data } = await addUser({variables: { ...formState },});
+    //         Auth.login(data.addUser.token);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    // };
     
     return (
         <main>
             <h1 className='text-center font-bold'>
                 Sign up for Thought Boxer
             </h1>
-            <form /*onSubmit={handleFormSubmit}*/>
+            <form /* onSubmit={handleFormSubmit}*/>
                 <input
                     className="form-input mx-1 text-center"
                     placeholder="Enter a Username"
