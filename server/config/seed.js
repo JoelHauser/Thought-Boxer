@@ -2,6 +2,8 @@ const db = require('./connection');
 const { User, Question } = require('../models');
 
 db.once('open', async () => {
+  await User.deleteMany();
+  await Question.deleteMany();
 
   const users = await User.insertMany([
     { username: 'Austin', password: 'DefinitelyNotAFurry' },
@@ -54,7 +56,13 @@ db.once('open', async () => {
   for (var i = 0; i < questions.length; i++) {
     await User.findByIdAndUpdate(
       { _id: users[i]._id },
-      { $push: { votes: questions[i]._id } },
+      { $push: { votes: questions[i]._id } }
+    )
+  }
+
+  for (var i = 0; i < questions.length; i++) {
+    await User.findByIdAndUpdate(
+      { _id: users[i]._id },
       { $push: { questions: questions[i]._id } }
     )
   }
