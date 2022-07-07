@@ -48,5 +48,3 @@ db.once('open', () => {
 
 // call the async function to start the server
 startApolloServer(typeDefs, resolvers);
-
-
