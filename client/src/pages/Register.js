@@ -7,7 +7,6 @@ function Register() {
     // const [addUser, { error }] = useMutation(ADD_USER);
     // const [formState, setFormState] = useState({
     //     username: '',
-    //     email: '',
     //     password: '',
     // });
     
