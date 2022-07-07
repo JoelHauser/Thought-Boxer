@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
     return(
-        <div>Welcome to Thought Boxer.</div>
+        <div className='text-center'>Welcome to Thought Boxer.</div>
     )
 }
 

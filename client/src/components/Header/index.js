@@ -5,7 +5,7 @@ function Header() {
     return (
         <header>
             <Link to="/">
-                <h2>Thought Boxer</h2>
+                <h2>THOUGHT BOXER</h2>
             </Link>
         </header>
     )
