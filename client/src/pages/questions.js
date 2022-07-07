@@ -1,6 +1,15 @@
 import React from 'react';
 
+import { useQuery } from '@apollo/client';
+import { QUERY_QUESTIONS } from '../utils/queries'
+
 function Questions() {
+    const { loading, data } = useQuery(QUERY_QUESTIONS);
+    const questions = data?.questions || [];
+
+    if (!questions.length) {
+        
+    }
     return(
         <div>
             <p>Should I leave my wife</p>
