@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import UserColumn from './components/UserColumn';
-import QuestionColumn from './components/QuestionColumn';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
 import Register from './pages/Register';
+import SingleQuestionView from './pages/SingleQuestionView';
+import NoMatch from './pages/NoMatch';
+import Questions from './pages/Questions';
 
 function App() {
   return (
@@ -28,12 +31,27 @@ function App() {
                   path="/profile"
                   element={<Profile />}
                 />
+                <Route
+                  path="/login"
+                  element={<Login />}
+                />
                 <Route 
                   path="/register"
                   element={<Register />}
                 />
+                <Route 
+                  path="/questions"
+                  element={<Questions />}
+                />
+                <Route
+                  path="/question"
+                  element={<SingleQuestionView />}
+                />
+                <Route
+                  path="*"
+                  element={<NoMatch />}
+                />
               </Routes>
-              <QuestionColumn />
             </div>
           </div>
           <Footer />
