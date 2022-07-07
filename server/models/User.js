@@ -6,19 +6,14 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      trim: true
     },
     password: {
       type: String,
       required: true
     },
     questions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Question'
-      }
-    ],
-    votes: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Question'
@@ -47,10 +42,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-questionSchema.virtual('voteCount').get(function () {
-  return this.voted.length;
-})
 
 const User = model('User', userSchema);
 
