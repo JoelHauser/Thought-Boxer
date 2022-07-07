@@ -3,6 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const { authMiddleware } = require('./utils/auth');
 const path = require('path');
+// const mongoose = require('mongoose');
 
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
@@ -15,6 +16,11 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware
 });
+
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/runescape3', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
 const app = express();
 
