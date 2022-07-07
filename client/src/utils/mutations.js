@@ -25,13 +25,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_QUESTION = gql`
-  mutation addQuestion($questionText: String!) {
-    addQuestion(questionText: $questionText) {
-      _id
-      questionText
-      createdAt
-      username
-      voteCount
+  mutation addQuestion($questionText: String!, $answerA: String!, $answerB: String!) {
+    addQuestion(questionText: $questionText, answerA: $answerA, answerB: $answerB) {
+      question {
+        _id
+        questionText
+        answerA
+        answerB
+      }
     }
   }
 `;
