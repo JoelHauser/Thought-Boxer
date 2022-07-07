@@ -6,6 +6,10 @@ const questionSchema = new Schema(
       type: String,
       required: true
     },
+    createdBy: {
+      type: String,
+      required: true
+    },
     answerA: {
       type: String,
       required: true
@@ -15,12 +19,10 @@ const questionSchema = new Schema(
       required: true
     },
     voteA: {
-      type: Number,
-      required: true
+      type: Number
     },
     voteB: {
-      type: Number,
-      required: true
+      type: Number
     }
   }, {
     toJSON: {
@@ -29,6 +31,7 @@ const questionSchema = new Schema(
   }
 );
 
+// displays how many votes a questions has
 questionSchema.virtual('voteCount').get(function() {
   return (this.voteA + this.voteB);
 })

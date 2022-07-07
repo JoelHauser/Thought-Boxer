@@ -4,57 +4,50 @@ const { User, Question } = require('../models');
 
 const resolvers = {
     Query: {
-        // GET current user
+        // get current user's data
         me: async (parent, args, context) => {
-            //if user is logged in
             if (context.user) {
-                // find user where _id = current user _id
                 const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                .populate('questions')
-                // return that data
+                    .select('-__v -password')
+                    .populate('questions')
+
                 return userData;
             }
-            // otherwise throw error
+
             throw new AuthenticationError('Not logged in');
         },
 
-        // // GET all users
-        // users: async () => {
-        //     return User.find()
-        //     .select('-__v -password')
-        //     .populate('questions')
-        // },
-
-        // // GET single user by username
-        // user: async (parent, { username }) => {
-        //     return User.findOne({ username })
-        //     .select('-__v -password')
-        //     .populate('questions')
-        // },
-
-        // if username is present, GET all their questions, if not GET all questions
+        // get all the questions
         questions: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Question.find(params).sort({ createdAt: -1 });
         },
 
-        // GET single question by _id
+        // get single question by _id
         question: async (parent, { _id }) => {
             return Question.findOne({ _id });
         }
     },
 
     Mutation: {
-        // POST new user to db
+        // create a new user
+        // expects:
+        //{
+        //  "username": "user1",
+        //  "password": "password1"
+        //}
         addUser: async (parent, args) => {
-            // create new user (and jwt token) with mutation params
             const user = await User.create(args);
             const token = signToken(user);
             return { token, user };
         },
 
-        // PUT/update logged-in status
+        // log a user in
+        // expects:
+        //{
+        //  "username": "user1",
+        //  "password": "password1"
+        //}
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
             if (!user) {
@@ -65,32 +58,68 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect credentials');
             }
             const token = signToken(user);
+            console.log('logged in')
             return { token, user };
         },
 
+        // add a question, user must be logged in
+        // requires username and user._id from context/header
+        // expects:
+        //{
+        //  "questionText": "Will ketchup stick to the wall?",
+        //  "answerA": "Yes",
+        //  "answerB": "No"
+        //}
         addQuestion: async (parent, args, context) => {
             if (context.user) {
-                const question = await Question.create({ ...args, username: context.user.username });
-          
+                const question = await Question.create({ ...args, createdBy: context.user.username });
+
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $push: { questions: question._id } },
                     { new: true }
                 );
-          
-              return question;
+
+                return question;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
 
+        // allows a user to vote on a question, user must be logged in
+        // requires user._id from context/header
+        // expects:
+        //{
+        //  "questionId": "<questionId>",
+        //  "voteType": "voteA" or "voteB" ONLY
+        // voteA === questionA / voteB === questionB
+        //}
         addVote: async (parent, { questionId, voteType }, context) => {
             if (context.user) {
-                const updatedQuestion = await Question.findOneAndUpdate(
-                    { _id: questionId },
-                    { voteType: voteType++},
-                    { new: true, runValidators: true }
+                var userVote = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { votes: questionId } },
+                    { new: true }
                 )
-                return updatedQuestion
+
+                if (voteType === 'voteA') {
+                    let updatedQuestion = await Question.findOneAndUpdate(
+                        { _id: questionId },
+                        { $inc: { voteA: 1 } },
+                        { new: true }
+                    )
+                    return updatedQuestion
+                }
+
+
+                if (voteType === 'voteB') {
+                    let updatedQuestion = await Question.findOneAndUpdate(
+                        { _id: questionId },
+                        { $inc: { voteB: 1 } },
+                        { new: true }
+                    )
+                    return updatedQuestion
+                }
+                throw new AuthenticationError('You need to be logged in!');
             }
         }
     }
