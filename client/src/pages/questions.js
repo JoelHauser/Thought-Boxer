@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { useQuery } from '@apollo/client';
-import { QUERY_QUESTIONS } from '../utils/queries'
 
 function Questions() {
     const questions = [
@@ -24,7 +22,12 @@ function Questions() {
                 questions.map(question => (
                     <div key={question._id}>
                         <Link
-                            to={`/question/${question._id}`}>
+                            to={{
+                                pathname:`/question/${question._id}`,
+                                state: { questions: question }
+                            }}
+
+                        >
                             <p>{question.questionText}</p>                            
                         </Link>
                     </div>
