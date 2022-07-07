@@ -31,6 +31,7 @@ const questionSchema = new Schema(
   }
 );
 
+// displays how many votes a questions has
 questionSchema.virtual('voteCount').get(function() {
   return (this.voteA + this.voteB);
 })
