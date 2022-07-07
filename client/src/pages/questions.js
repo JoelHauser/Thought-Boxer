@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { useQuery } from '@apollo/client';
+import { QUERY_QUESTIONS } from '../utils/queries';
 
-const Questions = ({ questions }) => {
+const Questions = () => {
+    const data = useQuery(QUERY_QUESTIONS);
+    const questions = data?.questions || [];
+
     if (!questions.length) {
         return <p>No questions have been asked yet!</p>
     }
-    
+
     return(
         <div>
             {questions &&
