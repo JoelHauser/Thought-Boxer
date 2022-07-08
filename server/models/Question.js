@@ -39,6 +39,3 @@ questionSchema.virtual('voteCount').get(function() {
 const Question = model('Question', questionSchema);
 
 module.exports = Question;
-
-
-
