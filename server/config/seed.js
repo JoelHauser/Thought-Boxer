@@ -15,30 +15,35 @@ db.once('open', async () => {
 
   const questions = await Question.insertMany([
     {
+      title: "Am I having a stroke?",
       questionText: 'Will ketchup stick to my wall?',
       createdBy: users[0].username,
       answerA: "Yes",
       answerB: "No"
     },
     {
+      title: "ËÜÉÛGH",
       questionText: 'Was BonJovi really living on a prayer?',
       createdBy: users[1].username,
       answerA: "Yes",
       answerB: "No"
     },
     {
+      title: "Veil Of Maya Ruelz DOOD",
       questionText: 'Is it safe to swim today?',
       createdBy: users[2].username,
       answerA: "Yes",
       answerB: "No"
     },
     {
+      title: "You'll NEVER believe what this guy said!",
       questionText: 'Will the fish need more help than this?',
       createdBy: users[3].username,
       answerA: "Yes",
       answerB: "No"
     },
     {
+      title: "The answer is yes.",
       questionText: 'Can Goku beat Superman in a fight?',
       createdBy: users[4].username,
       answerA: "Yes",
