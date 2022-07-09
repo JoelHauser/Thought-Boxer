@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Home = () => {
-    return(
-        <div className='text-center'>Welcome to Thought Boxer.</div>
-    )
-}
+  return <div className="text-center">Welcome to Thought Boxer.</div>;
+};
 
 export default Home;
