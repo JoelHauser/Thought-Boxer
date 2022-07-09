@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import { ApolloProvider, InMemoryCache, ApolloClient, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 import Footer from './components/Footer';
 import UserColumn from './components/UserColumn';
@@ -12,8 +14,8 @@ import Register from './pages/Register';
 import SingleQuestionView from './pages/SingleQuestionView';
 import NoMatch from './pages/NoMatch';
 import Questions from './pages/Questions';
-import { ApolloProvider, InMemoryCache, ApolloClient, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import QuestionForm from './components/QuestionForm';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,45 +43,49 @@ function App() {
       <Router>
         <div className="app">
           <Header />
-            <div className="grid grid-cols-7">
-              <div className="userColumn col-span-1">
-                <UserColumn />
-              </div>
-
-              <div className="questionColumn col-span-6">
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<Home />}
-                  />
-                  <Route
-                    path="/profile"
-                    element={<Profile />}
-                  />
-                  <Route
-                    path="/login"
-                    element={<Login />}
-                  />
-                  <Route 
-                    path="/register"
-                    element={<Register />}
-                  />
-                  <Route 
-                    path="/questions"
-                    element={<Questions />}
-                  />
-                  <Route
-                    path="/question/:id"
-                    element={<SingleQuestionView />}
-                  />
-                  <Route
-                    path="*"
-                    element={<NoMatch />}
-                  />
-                </Routes>
-              </div>
+          <div className="grid grid-cols-7">
+            <div className="userColumn col-span-1">
+              <UserColumn />
             </div>
-            <Footer />
+
+            <div className="questionColumn col-span-6">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/profile"
+                  element={<Profile />}
+                />
+                <Route
+                  path="/login"
+                  element={<Login />}
+                />
+                <Route
+                  path="/register"
+                  element={<Register />}
+                />
+                <Route
+                  path="/questions"
+                  element={<Questions />}
+                />
+                <Route
+                  path="/question/:id"
+                  element={<SingleQuestionView />}
+                />
+                <Route
+                  path='questionform'
+                  element={<QuestionForm />}
+                />
+                <Route
+                  path="*"
+                  element={<NoMatch />}
+                />
+              </Routes>
+            </div>
+          </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

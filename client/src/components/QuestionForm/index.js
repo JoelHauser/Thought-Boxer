@@ -5,7 +5,7 @@ import { QUERY_QUESTIONS, QUERY_ME } from '../../utils/queries';
 
 
 const QuestionForm = () => {
-    const [questionText, setText] = useState('');
+    const [formState, setFormState] = useState({title: '', text: '', answerA: '', answerB: ''});
     const [characterCount, setCharacterCount] = useState(0);
 
     const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
@@ -14,7 +14,7 @@ const QuestionForm = () => {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, thoughts: [...me.questions, addQuestion] } }
+                    data: { me: { ...me, questions: [...me.questions, addQuestion] } }
                 });
             } catch (e) {
                 console.warn("First question insertion by user!")
@@ -29,10 +29,12 @@ const QuestionForm = () => {
     });
 
     const handleChange = (event) => {
-        if (event.target.value.length <= 500) {
-            setText(event.target.value);
-            setCharacterCount(event.target.value.length);
-        }
+        const {name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        })
     };
 
     const handleFormSubmit = async (event) => {
@@ -40,11 +42,15 @@ const QuestionForm = () => {
 
         try {
             await addQuestion({
-                variables: { questionText },
+                variables: { formState },
             });
 
-            setText('');
-            setCharacterCount(0);
+            setFormState({
+                title: '',
+                text: '',
+                answerA: '',
+                answerB: '',
+            });
         } catch(e) {
             console.error(e);
         }
@@ -53,7 +59,10 @@ const QuestionForm = () => {
 
     return(
         <div>
-            
+            <h1>Add a question!</h1>
+            <form onSubmit={handleFormSubmit}>
+                <input name='title' type='text' id='title' placeholder="What's on your mind?" onChange={handleChange}></input>
+            </form>
         </div>
     )
 }
