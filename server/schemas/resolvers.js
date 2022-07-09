@@ -66,6 +66,7 @@ const resolvers = {
         // requires username and user._id from context/header
         // expects:
         //{
+        //  "title": "Am I having a stroke?"
         //  "questionText": "Will ketchup stick to the wall?",
         //  "answerA": "Yes",
         //  "answerB": "No"

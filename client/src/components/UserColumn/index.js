@@ -3,11 +3,18 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 function UserColumn() {
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
     return(
         <div className='text-center'>
             {Auth.loggedIn() ? (
             <>
-                <Link to="/profile">Me</Link>
+                <Link to="/profile">My Profile</Link>
+                <a href="/" onClick={logout}>
+                    Logout
+                </a>
             </>
             ) : (
             <>
