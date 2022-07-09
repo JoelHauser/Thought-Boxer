@@ -7,6 +7,7 @@ export const QUERY_ME = gql`
             username
             questions {
                 _id
+                title
                 questionText
                 createdBy
                 answerA
@@ -23,6 +24,7 @@ export const QUERY_QUESTION = gql`
   query question($id: ID!) {
     question(_id: $id) {
       _id
+      title
       questionText
       createdBy
       answerA
@@ -37,6 +39,7 @@ export const QUERY_QUESTIONS = gql`
 {
   questions{
     _id
+    title
     questionText
     createdBy
     answerA
