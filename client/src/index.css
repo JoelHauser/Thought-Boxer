@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +11,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app {
+  min-height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+header {
+  text-align: center;
+  height: 10vh;
+  border-bottom: 1px solid #000;
+}
+
+.userColumn {
+  border-right:solid 1px #000;
+  min-height: 80vh;
+}
+
+.questionColumn {
+  text-align: center;
+}
+
+footer {
+  height: 10vh;
+  text-align: center;
+  border-top: 1px solid #000;
 }
