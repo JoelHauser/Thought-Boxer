@@ -11,7 +11,7 @@ function UserColumn() {
         <div className='text-center'>
             {Auth.loggedIn() ? (
             <>
-                <Link to="/profile">Me</Link>
+                <Link to="/profile">My Profile</Link>
                 <a href="/" onClick={logout}>
                     Logout
                 </a>
