@@ -9,7 +9,7 @@ const SingleQuestionView = (props) => {
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
     });
-    
+
     const question = data?.question || {};
 
     if (loading) {
@@ -18,7 +18,10 @@ const SingleQuestionView = (props) => {
     
     return(
         <div>
+            <h2>{question.title}</h2>
             <p>{question.questionText}</p>
+            <button>Vote A</button>
+            <button>Vote B</button>
         </div>
     )
 }
