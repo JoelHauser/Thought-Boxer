@@ -35,6 +35,10 @@ header {
   text-align: center;
 }
 
+button {
+  border: 1px solid #000;
+}
+
 footer {
   height: 10vh;
   text-align: center;
