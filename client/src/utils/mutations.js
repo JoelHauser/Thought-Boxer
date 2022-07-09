@@ -37,3 +37,19 @@ export const ADD_QUESTION = gql`
     }
   }
 `;
+
+export const ADD_VOTE = gql`
+mutation addVote($questionId: String!, $voteType: String!) {
+  addVote(questionId: $questionId, voteType: $voteType) {
+    question {
+      _id
+      title
+      questionText
+      answerA
+      answerB
+      voteA
+      voteB
+    }
+  }
+}
+`;
