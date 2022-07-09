@@ -29,6 +29,7 @@ export const ADD_QUESTION = gql`
     addQuestion(questionText: $questionText, answerA: $answerA, answerB: $answerB) {
       question {
         _id
+        title
         questionText
         answerA
         answerB
