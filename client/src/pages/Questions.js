@@ -6,7 +6,6 @@ import { QUERY_QUESTIONS } from '../utils/queries';
 const Questions = () => {
     const { data } = useQuery(QUERY_QUESTIONS);
     const questions = data?.questions || [];
-    console.log(questions);
 
     if (!questions.length) {
         return <p>No questions have been asked yet!</p>
@@ -23,7 +22,7 @@ const Questions = () => {
                             }}
 
                         >
-                            <p>{question.questionText}</p>                            
+                            <p>{question.title}</p>                            
                         </Link>
                     </div>
                 ))}
