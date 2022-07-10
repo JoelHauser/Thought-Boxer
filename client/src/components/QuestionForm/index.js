@@ -5,28 +5,30 @@ import { QUERY_QUESTIONS, QUERY_ME } from '../../utils/queries';
 
 
 const QuestionForm = () => {
-    const [formState, setFormState] = useState({ title: '', text: '', answerA: '', answerB: '' });
+    const [formState, setFormState] = useState({ title: '', questionText: '', answerA: '', answerB: '' });
     const [characterCount, setCharacterCount] = useState(0);
 
-    const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
-        update(cache, { data: { addQuestion } }) {
-            try {
-                const { me } = cache.readQuery({ query: QUERY_ME });
-                cache.writeQuery({
-                    query: QUERY_ME,
-                    data: { me: { ...me, questions: [...me.questions, addQuestion] } }
-                });
-            } catch (e) {
-                console.warn("First question insertion by user!")
-            }
+    const [addQuestion, { error }] = useMutation(ADD_QUESTION);
 
-            const { questions } = cache.readQuery({ query: QUERY_QUESTIONS });
-            cache.writeQuery({
-                query: QUERY_QUESTIONS,
-                data: { questions: [addQuestion, ...questions] },
-            });
-        }
-    });
+    // const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
+    //     update(cache, { data: { addQuestion } }) {
+    //         try {
+    //             const { me } = cache.readQuery({ query: QUERY_ME });
+    //             cache.writeQuery({
+    //                 query: QUERY_ME,
+    //                 data: { me: { ...me, questions: [...me.questions, addQuestion] } }
+    //             });
+    //         } catch (e) {
+    //             console.warn("First question insertion by user!")
+    //         }
+
+    //         const { questions } = cache.readQuery({ query: QUERY_QUESTIONS });
+    //         cache.writeQuery({
+    //             query: QUERY_QUESTIONS,
+    //             data: { questions: [addQuestion, ...questions] },
+    //         });
+    //     }
+    // });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -42,17 +44,22 @@ const QuestionForm = () => {
 
         try {
             await addQuestion({
-                variables: {...formState },
+                variables: { 
+                    title: formState.title,
+                    questionText: formState.questionText,
+                    answerA: formState.answerA,
+                    answerB: formState.answerB
+                 }
             });
 
             setFormState({
                 title: '',
-                text: '',
+                questionText: '',
                 answerA: '',
                 answerB: '',
             });
-        } catch (e) {
-            console.error(e);
+        } catch (error) {
+            console.error(error);
         }
     };
 
@@ -78,13 +85,13 @@ const QuestionForm = () => {
                     <label>Tell us your story</label>
                     <textarea
                         className='form-input'
-                        name='text'
-                        type='text'
-                        id='text'
+                        name='questionText'
+                        type='questionText'
+                        id='questionText'
                         placeholder='Tell us your story.'
                         required
                         onChange={handleChange}
-                        value={formState.text}
+                        value={formState.questionText}
                         rows={7}
                     />
                 </div>
@@ -108,7 +115,7 @@ const QuestionForm = () => {
                         name='answerB'
                         type='answerB'
                         id='answerB'
-                        placeholder="How do you feel about this?"
+                        placeholder="How do they feel about this?"
                         required
                         onChange={handleChange}
                         value={formState.answerB}
@@ -118,6 +125,7 @@ const QuestionForm = () => {
                     Submit
                 </button>
             </form>
+            {error && <h1>Something went wrong.</h1>}
         </div>
     )
 }
