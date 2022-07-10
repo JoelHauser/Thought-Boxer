@@ -7,26 +7,27 @@ import { ADD_VOTE } from '../utils/mutations';
 
 const SingleQuestionView = () => {
     const { id: questionId } = useParams();
+    const { id: voteId } = useParams();
 
-    const [addVoteA] = useMutation(ADD_VOTE);
+    const [addVoteA] = useMutation(ADD_VOTE, {
+        variables: {
+            voteType: 'voteA',
+            questionId: voteId,
+        },
+    });
+
+    const [addVoteB] = useMutation(ADD_VOTE, {
+        variables: {
+            voteType: 'voteB',
+            questionId: voteId
+        }
+    })
 
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
     });
 
     const question = data?.question || {};
-    
-    const castVoteA = async (event) => {
-        event.preventDefault();
-
-        try {
-            await addVoteA({
-                variables: { questionId, voteType: 'voteA'}
-            });
-        } catch (e) {
-            console.error(e);
-        }
-    }
     
 
     if (loading) {
@@ -38,9 +39,13 @@ const SingleQuestionView = () => {
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
             <button
-                onClick={castVoteA}
-            >Vote A</button>
-            <button>Vote B</button>
+                onClick={addVoteA}
+                >Vote A
+            </button>
+            <button
+                onClick={addVoteB}
+                >Vote B
+            </button>
         </div>
     )
 }
