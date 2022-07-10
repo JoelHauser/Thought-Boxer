@@ -5,8 +5,10 @@ import { useMutation } from '@apollo/client';
 import { QUERY_QUESTION } from '../utils/queries';
 import { ADD_VOTE } from '../utils/mutations';
 
-const SingleQuestionView = (props) => {
+const SingleQuestionView = () => {
     const { id: questionId } = useParams();
+
+    const [addVoteA] = useMutation(ADD_VOTE);
 
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
@@ -14,20 +16,17 @@ const SingleQuestionView = (props) => {
 
     const question = data?.question || {};
     
-    const { addVoteA } = useMutation(ADD_VOTE, {
-        variables: { 
-            id: questionId,
-            voteType: 'voteA'
-        }
-    });
+    const castVoteA = async (event) => {
+        event.preventDefault();
 
-    const { addVoteB } = useMutation(ADD_VOTE, {
-        variables: { 
-            id: questionId,
-            voteType: 'voteB'
+        try {
+            await addVoteA({
+                variables: { questionId, voteType: 'voteA'}
+            });
+        } catch (e) {
+            console.error(e);
         }
-    });
-
+    }
     
 
     if (loading) {
@@ -39,11 +38,9 @@ const SingleQuestionView = (props) => {
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
             <button
-                onClick={addVoteA}
+                onClick={castVoteA}
             >Vote A</button>
-            <button
-                onclick={addVoteB}
-            >Vote B</button>
+            <button>Vote B</button>
         </div>
     )
 }
