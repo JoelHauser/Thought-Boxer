@@ -25,15 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_QUESTION = gql`
-  mutation addQuestion($questionText: String!, $answerA: String!, $answerB: String!) {
-    addQuestion(questionText: $questionText, answerA: $answerA, answerB: $answerB) {
-      question {
-        _id
+  mutation addQuestion($title: String!, $questionText: String!, $answerA: String!, $answerB: String!) {
+    addQuestion(title: $title, questionText: $questionText, answerA: $answerA, answerB: $answerB) {
         title
         questionText
         answerA
         answerB
-      }
     }
   }
 `;
@@ -41,15 +38,13 @@ export const ADD_QUESTION = gql`
 export const ADD_VOTE = gql`
 mutation addVote($questionId: String!, $voteType: String!) {
   addVote(questionId: $questionId, voteType: $voteType) {
-    question {
-      _id
-      title
-      questionText
-      answerA
-      answerB
-      voteA
-      voteB
-    }
+    _id
+    title
+    questionText
+    answerA
+    answerB
+    voteA
+    voteB
   }
 }
 `;
