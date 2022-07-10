@@ -35,6 +35,7 @@ header {
   text-align: center;
 }
 
+
 .form-box {
   margin: 10px;
 }
@@ -42,6 +43,10 @@ header {
 .form-input {
   border: 1px black solid;
   width: 100%;
+
+
+button {
+  border: 1px solid #000;
 
 }
 
