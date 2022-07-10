@@ -75,7 +75,7 @@ function App() {
                   element={<SingleQuestionView />}
                 />
                 <Route
-                  path='questionform'
+                  path='/questionform'
                   element={<QuestionForm />}
                 />
                 <Route

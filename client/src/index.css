@@ -27,12 +27,22 @@ header {
 }
 
 .userColumn {
-  border-right:solid 1px #000;
+  border-right: solid 1px #000;
   min-height: 80vh;
 }
 
 .questionColumn {
   text-align: center;
+}
+
+.form-box {
+  margin: 10px;
+}
+
+.form-input {
+  border: 1px black solid;
+  width: 100%;
+
 }
 
 footer {
