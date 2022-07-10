@@ -27,7 +27,7 @@ header {
 }
 
 .userColumn {
-  border-right:solid 1px #000;
+  border-right: solid 1px #000;
   min-height: 80vh;
 }
 
@@ -35,8 +35,19 @@ header {
   text-align: center;
 }
 
+
+.form-box {
+  margin: 10px;
+}
+
+.form-input {
+  border: 1px black solid;
+  width: 100%;
+
+
 button {
   border: 1px solid #000;
+
 }
 
 footer {
