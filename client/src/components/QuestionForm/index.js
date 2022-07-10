@@ -42,7 +42,7 @@ const QuestionForm = () => {
 
         try {
             await addQuestion({
-                variables: {...formState },
+                variables: { ...formState },
             });
 
             setFormState({
