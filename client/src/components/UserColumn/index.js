@@ -4,7 +4,9 @@ import Auth from "../../utils/auth";
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_QUESTIONS } from '../../utils/queries';
 
-function UserColumn() {
+
+// the 'me' is breaking during sessions sometimes if you dont log out. if website breaks, comment out code inside //'s, re-login, then uncomment
+const UserColumn = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -15,11 +17,13 @@ function UserColumn() {
   if(loading) {
     return (<h1>Loading...</h1>)
   } else {
+    //
     const me = userData.me
     const myQuestions = me.questions
     console.log(myQuestions)
-    
+    //
 
+    //
     return (
       <div className="text-center">
         {Auth.loggedIn() ? (
@@ -63,6 +67,7 @@ function UserColumn() {
         )}
       </div>
     );
+    //
   }
 }
 
