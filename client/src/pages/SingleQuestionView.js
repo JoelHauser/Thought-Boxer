@@ -16,6 +16,8 @@ const SingleQuestionView = () => {
         },
     });
 
+
+
     const [addVoteB] = useMutation(ADD_VOTE, {
         variables: {
             voteType: 'voteB',
@@ -23,12 +25,16 @@ const SingleQuestionView = () => {
         }
     })
 
+    
+
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
     });
 
     const question = data?.question || {};
-    
+
+    const percentageA = Math.round( (question.voteA - question.voteB) / ( (question.voteA + question.voteB) / 2 ) * 100 );
+    const percentageB = (100 - percentageA)
 
     if (loading) {
         return <div>Loading...</div>
@@ -40,12 +46,13 @@ const SingleQuestionView = () => {
             <p>{question.questionText}</p>
             <button
                 onClick={addVoteA}
-                >Vote A
+                >{question.answerA}
             </button>
             <button
                 onClick={addVoteB}
-                >Vote B
+                >{question.answerB}
             </button>
+            <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
         </div>
     )
 }
