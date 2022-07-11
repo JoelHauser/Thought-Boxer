@@ -43,6 +43,8 @@ header {
 .form-input {
   border: 1px black solid;
   width: 100%;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 button {
