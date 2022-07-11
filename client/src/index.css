@@ -52,6 +52,19 @@ button {
 
 }
 
+.ratioBar {
+  height: 50px;
+  width: 500px;
+}
+
+.ratioBarFull {
+  float: left;
+}
+
+.barContainer {
+  text-align: -webkit-center;
+}
+
 footer {
   height: 10vh;
   text-align: center;

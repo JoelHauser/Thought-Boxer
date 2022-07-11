@@ -16,6 +16,8 @@ const SingleQuestionView = () => {
         },
     });
 
+
+
     const [addVoteB] = useMutation(ADD_VOTE, {
         variables: {
             voteType: 'voteB',
@@ -23,12 +25,19 @@ const SingleQuestionView = () => {
         }
     })
 
+    
+
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
     });
 
     const question = data?.question || {};
-    
+
+    const percentageA = Math.round( (question.voteA - question.voteB) / ( (question.voteA + question.voteB) / 2 ) * 100 );
+    const percentageB = (100 - percentageA)
+    const ratioWidth = (percentageA * 5);
+    // create const for ratiobar width
+    // create new formula for width
 
     if (loading) {
         return <div>Loading...</div>
@@ -40,12 +49,18 @@ const SingleQuestionView = () => {
             <p>{question.questionText}</p>
             <button
                 onClick={addVoteA}
-                >Vote A
+                >{question.answerA}
             </button>
             <button
                 onClick={addVoteB}
-                >Vote B
+                >{question.answerB}
             </button>
+            <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+            <div className="barContainer">
+                <div className="bg-gray-500 ratioBar">
+                    <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                </div>
+            </div>
         </div>
     )
 }
