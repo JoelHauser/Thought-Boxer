@@ -1,8 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-=======
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -40,7 +36,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
->>>>>>> 9427f15b1d676fb289bd0e9f7f9cbc986ebf5834
+
 
 function App() {
   return (
