@@ -5,16 +5,20 @@ type User {
   _id: ID
   username: String
   password: String
-  voted: [String]
+  questions: [Question]
+  questionCount: Int
+  votes: [String]
+  votedCount: Int
 }
 
 type Auth {
-  token: ID
+  token: ID!
   user: User
 }
 
 type Question {
   _id: ID
+  title: String
   createdBy: String
   questionText: String
   answerA: String
@@ -26,15 +30,14 @@ type Question {
 type Query {
   questions: [Question]
   question(_id: ID!): Question
-  myQuestions: Question
-  myVotes: User
+  me: User
 }
 
 type Mutation {
   addUser(username: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
-  addQuestion(questionText: String!, answerA: String!, answerB: String!): Question
-  addVote(voteA: Int!, voteB: Int!): Question
+  addQuestion(title: String!, questionText: String!, answerA: String!, answerB: String!): Question
+  addVote(voteType: String!, questionId: String!): Question
 }
 `;
 

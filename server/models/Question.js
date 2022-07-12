@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const questionSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true
+    },
     questionText: {
       type: String,
       required: true
@@ -19,12 +23,10 @@ const questionSchema = new Schema(
       required: true
     },
     voteA: {
-      type: Number,
-      required: true
+      type: Number
     },
     voteB: {
-      type: Number,
-      required: true
+      type: Number
     }
   }, {
     toJSON: {
@@ -33,6 +35,7 @@ const questionSchema = new Schema(
   }
 );
 
+// displays how many votes a questions has
 questionSchema.virtual('voteCount').get(function() {
   return (this.voteA + this.voteB);
 })
