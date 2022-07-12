@@ -12,7 +12,7 @@ const Questions = () => {
     }
 
     return(
-        <div>
+        <div className='questionText'>
             {questions &&
                 questions.map(question => (
                     <div key={question._id}>
