@@ -1,5 +1,5 @@
 {
-  "name": "thought-boxer",
+  "name": "client",
   "version": "0.1.0",
   "private": false,
   "proxy": "http://localhost:3001",
