@@ -54,7 +54,6 @@ const SingleQuestionView = () => {
         <div>
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
-<<<<<<< HEAD
             {Auth.loggedIn() ? (
                 <div>
                     <button
@@ -69,22 +68,6 @@ const SingleQuestionView = () => {
                 <div className="barContainer">
                     <div className="bg-gray-500 ratioBar">
                         <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
-=======
-            <button
-                onClick={addVoteA}
-                >{question.answerA}
-            </button>
-            <button
-                onClick={addVoteB}
-                >{question.answerB}
-            </button>
-            <div className="barContainer">
-                <div className="bg-gray-500 ratioBar"><span className="resultPercent float-right text-5xl">{percentageB}%</span>
-                    <div className="resultText"><span className="italic"> chose </span> <p class="font-bold"> {question.answerB}</p></div>
-                    
-                    <div className="bg-blue-600 flex ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent text-5xl">{percentageA}%</span>
-                        <div className="resultText"> <span className="italic"> chose </span> <p class="font-bold"> {question.answerA}</p></div>
->>>>>>> d67ece373520e126b3838919c0519b1d908ac886
                     </div>
                 </div>
             </div>
