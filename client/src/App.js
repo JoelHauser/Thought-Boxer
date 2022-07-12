@@ -20,6 +20,7 @@ import SingleQuestionView from "./pages/SingleQuestionView";
 import NoMatch from "./pages/NoMatch";
 import Questions from "./pages/Questions";
 import QuestionForm from "./components/QuestionForm";
+import "../src/global.scss";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
