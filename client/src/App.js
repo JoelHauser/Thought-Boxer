@@ -12,7 +12,6 @@ import { setContext } from "@apollo/client/link/context";
 
 import Footer from "./components/Footer";
 import UserColumn from "./components/UserColumn";
-import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -55,7 +54,7 @@ function App() {
 
             <div className="questionColumn col-span-6">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Questions />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
