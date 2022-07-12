@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 
-try {
-  await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/thought-boxing', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
-} catch (error) {
-  console.log(error)
-}
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/thought-boxing', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 module.exports = mongoose.connection;
