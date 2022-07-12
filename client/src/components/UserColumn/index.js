@@ -41,9 +41,6 @@ const UserColumn = () => {
                   </div>
                 ))}
             </div>
-  
-  
-  
               <a href="/" onClick={logout}>
                 Logout
               </a>
