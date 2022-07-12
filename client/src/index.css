@@ -63,6 +63,16 @@ button {
   text-align: -webkit-center;
 }
 
+.resultPercent {
+  padding: 0px 5px;
+}
+
+.resultText {
+  flex: auto;
+  float: right;
+  display: inline-flex;
+}
+
 footer {
   height: 10vh;
   text-align: center;
