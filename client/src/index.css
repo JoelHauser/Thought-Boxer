@@ -43,11 +43,41 @@ header {
 .form-input {
   border: 1px black solid;
   width: 100%;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 button {
   border: 1px solid #000;
 
+}
+
+.ratioBar {
+  height: 50px;
+  width: 500px;
+}
+
+.ratioBarFull {
+  float: left;
+}
+
+.barContainer {
+  text-align: -webkit-center;
+}
+
+.resultPercent {
+  padding: 0px 5px;
+}
+
+.resultText {
+  flex: auto;
+  float: right;
+  display: inline-flex;
+}
+
+.resultPercent, .resultText {
+  position:relative;
+  z-index: 9999;
 }
 
 footer {
