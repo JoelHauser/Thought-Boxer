@@ -7,9 +7,10 @@ import { ADD_VOTE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SingleQuestionView = () => {
-    const [vote, setVote] = useState(0);
     const { id: questionId } = useParams();
     const { id: voteId } = useParams();
+
+    const [voteCheck, setVoteCheck] = useState(false);
 
     const [addVoteA] = useMutation(ADD_VOTE, {
         variables: {
@@ -84,6 +85,8 @@ const SingleQuestionView = () => {
             )
         }
     }
+
+
     return(
         <div>
             <h2>{question.title}</h2>
