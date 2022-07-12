@@ -63,10 +63,10 @@ const SingleQuestionView = () => {
             </button>
             <div className="barContainer">
                 <div className="bg-gray-500 ratioBar"><span className="resultPercent float-right text-5xl">{percentageB}%</span>
-                    <div className="resultText"><span className="italic"> chose</span> <p class="font-bold">{question.answerB}</p></div>
+                    <div className="resultText"><span className="italic"> chose </span> <p class="font-bold"> {question.answerB}</p></div>
                     
                     <div className="bg-blue-600 flex ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent text-5xl">{percentageA}%</span>
-                        <div className="resultText"> <span className="italic"> chose</span> <p class="font-bold">{question.answerA}</p></div>
+                        <div className="resultText"> <span className="italic"> chose </span> <p class="font-bold"> {question.answerA}</p></div>
                     </div>
                 </div>
             </div>

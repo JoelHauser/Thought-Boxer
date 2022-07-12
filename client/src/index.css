@@ -73,6 +73,11 @@ button {
   display: inline-flex;
 }
 
+.resultPercent, .resultText {
+  position:relative;
+  z-index: 9999;
+}
+
 footer {
   height: 10vh;
   text-align: center;
