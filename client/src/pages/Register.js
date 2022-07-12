@@ -33,11 +33,13 @@ function Register() {
     };
     
     return (
-        <main>
-            <h1 className='text-center font-bold'>
+            <div className='flex flex-col items-center content-center w-full'>
+            <h1 className='text-center'>
                 Sign up for Thought Boxer
             </h1>
             <form onSubmit={handleFormSubmit}>
+            <div className='form-box'>
+            <label>Username</label>
                 <input
                     className="form-input mx-1 text-center"
                     placeholder="Enter a Username"
@@ -47,6 +49,9 @@ function Register() {
                     value={formState.username}
                     onChange={handleChange}
                 />
+                </div>
+                <div className='form-box'>
+                    <label>Password</label>
                 <input
                     className="form-input mx-1 text-center"
                     placeholder="Choose a Password"
@@ -56,12 +61,13 @@ function Register() {
                     value={formState.password}
                     onChange={handleChange}
                 />
+                </div>
                 <button className="btn w-1/4 d-block text-center border-2 rounded m-6" type="submit">
                     Submit
                 </button>
             </form>
             {error && <div>Signup failed</div>}
-        </main>
+            </div>
     )
 }
 
