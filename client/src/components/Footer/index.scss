@@ -1,12 +1,16 @@
+@import "../../global.scss";
+
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $headerFooter;
 
   div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $headerFooter;
 
     h3 {
       font-size: 30px;

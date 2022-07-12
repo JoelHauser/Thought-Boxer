@@ -1,7 +1,11 @@
+@import "../../global.scss";
+
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $headerFooter;
     
     h2 {
         font-size: 85px;

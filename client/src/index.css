@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./global.scss";
+
+/*  #006d77 
+    #83c5be header footer
+    #edf6f9 body
+    #ffddd2 */
 
 body {
   margin: 0;
@@ -9,6 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #edf6f9;
 }
 
 .app {
@@ -29,15 +36,30 @@ header {
 .userColumn {
   border-right: solid 1px #000;
   min-height: 80vh;
+  background-color: #ffddd2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .questionColumn {
   text-align: center;
 }
 
+ label {
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  margin: 0;
+ }
+
+ 
 
 .form-box {
   margin: 10px;
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-input {
@@ -51,6 +73,8 @@ button {
   border: 1px solid #000;
 
 }
+
+
 
 .ratioBar {
   height: 50px;
@@ -80,6 +104,11 @@ button {
   z-index: 9999;
 }
 
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 footer {
   height: 10vh;
   text-align: center;
