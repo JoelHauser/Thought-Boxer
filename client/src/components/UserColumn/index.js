@@ -14,14 +14,8 @@ const UserColumn = () => {
 
   const { loading, data: userData } = useQuery(QUERY_ME);
 
-  if(loading) {
-    return (<h1>Loading...</h1>)
-  } else {
-    //
-    const me = userData.me
-    const myQuestions = me.questions
-    console.log(myQuestions)
-    //
+
+  if(loading) return 'Loading...'
 
     //
     return (
@@ -29,12 +23,12 @@ const UserColumn = () => {
         {Auth.loggedIn() ? (
           <>
             <div className="profilecontainer">
-              <h1>Hello, {me.username}</h1>
-              <p>Questions Asked: {me.questions.length}</p>
-              <p>Voted Posts: {me.votes.length}</p>
+              <h1>Hello, {userData.me.username}</h1>
+              <p>Questions Asked: {userData.me.questions.length}</p>
+              <p>Voted Posts: {userData.me.votes.length}</p>
               <p>Your Questions:</p>
               <div>
-                {myQuestions.map( question => (
+                {userData.me.questions.map( question => (
                   <div key={question._id}>
                     <Link
                       to={{
@@ -68,7 +62,6 @@ const UserColumn = () => {
       </div>
     );
     //
-  }
 }
 
 // <Link to="/login">
