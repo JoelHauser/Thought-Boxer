@@ -12,15 +12,14 @@ const UserColumn = () => {
     Auth.logout();
   };
 
-  const { loading, data: userData } = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(QUERY_ME);
 
   if(loading) {
     return (<h1>Loading...</h1>)
   } else {
     //
-    const me = userData.me
-    const myQuestions = me.questions
-    console.log(myQuestions)
+    const user = data?.me || data?.user || {};
+    const myQuestions = user.questions
     //
 
     //
@@ -29,9 +28,9 @@ const UserColumn = () => {
         {Auth.loggedIn() ? (
           <>
             <div className="profilecontainer">
-              <h1>Hello, {me.username}</h1>
-              <p>Questions Asked: {me.questions.length}</p>
-              <p>Voted Posts: {me.votes.length}</p>
+              <h1>Hello, {user.username}</h1>
+              <p>Questions Asked: {user.questions.length}</p>
+              <p>Voted Posts: {user.votes.length}</p>
               <p>Your Questions:</p>
               <div>
                 {myQuestions.map( question => (
