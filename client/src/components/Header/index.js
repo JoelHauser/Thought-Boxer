@@ -6,7 +6,7 @@ function Header() {
     return (
         <header>
             <Link to="/">
-                <h2 className='text-base'>THOUGHT BOXER</h2>
+                <h2>THOUGHT BOXER</h2>
             </Link>
         </header>
     )

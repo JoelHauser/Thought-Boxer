@@ -29,40 +29,37 @@ code {
 header {
   text-align: center;
   height: 10vh;
-  border-bottom: 1px solid #000;
 }
 
 .userColumn {
-  border-right: solid 1px #000;
   min-height: 80vh;
-  background-color: #ffddd2;
+  background-color: #83c5be;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .profilecontainer {
-  background-color: #ffddd2;
+  background-color: #83c5be;
 }
 .userColumn h1 {
-  background-color: #ffddd2;
+  background-color: #83c5be;
+  
 }
 
 .userColumn p {
-  background-color: #ffddd2;
+  background-color: #83c5be;
 }
 
 .userColumn a {
-  background-color: #ffddd2;
+  background-color: #83c5be;
 }
 
 .questionColumn {
-  text-align: center;
+  align-items: center;
   background-color: #EDF6F9;
 }
 
-.questionText {
-  background-color: #EDF6F9;
-}
 
 label {
   display: flex;
@@ -84,6 +81,7 @@ label {
   padding: 3px;
   border-radius: 5px;
 }
+
 
 button {
   border: 1px solid #000;
@@ -126,5 +124,4 @@ button {
 footer {
   height: 10vh;
   text-align: center;
-  border-top: 1px solid #000;
 }
