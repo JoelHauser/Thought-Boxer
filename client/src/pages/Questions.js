@@ -12,11 +12,7 @@ const Questions = () => {
     }
 
     return(
-<<<<<<< HEAD
         <div className='questionText'>
-=======
-        <div className='flex flex-col my-5'>
->>>>>>> 08585363f026e51fd71df63cb80c81bc25a3d734
             {questions &&
                 questions.map(question => (
                     <div className='p-2 border border-solid border-black rounded w-10/12 mx-3 my-1' key={question._id}>

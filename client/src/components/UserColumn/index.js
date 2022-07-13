@@ -19,11 +19,11 @@ const UserColumn = () => {
 
     //
     return (
-      <div className="text-center">
+      <div className="userColumn col-span-1 flex">
         {Auth.loggedIn() ? (
           <>
-            <div className="profilecontainer">
-              <h1>Hello, {userData.me.username}</h1>
+            <div className="flex flex-col profilecontainer justify-items-start">
+              <h1 className='justify-start'>Hello, {userData.me.username}</h1>
               <p>Questions Asked: {userData.me.questions.length}</p>
               <p>Voted Posts: {userData.me.votes.length}</p>
               <p>Your Questions:</p>
