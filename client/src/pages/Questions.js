@@ -13,10 +13,10 @@ const Questions = () => {
     }
 
     return(
-        <div className='questionText'>
+        <div className='questionText rounded-b-lg'>
             {questions &&
                 questions.map(question => (
-                    <div className='p-2 border border-solid border-black rounded w-10/12 mx-3 my-1' key={question._id}>
+                    <div className='p-2 w-10/12 mx-3 my-1' key={question._id}>
                         <Link
                             to={{
                                 pathname:`/question/${question._id}`

@@ -29,7 +29,6 @@ code {
 header {
   text-align: center;
   height: 10vh;
-  border-bottom: 1px solid #000;
 }
 
 .userColumn {
@@ -57,7 +56,7 @@ header {
 }
 
 .questionColumn {
-align-items: center;
+  align-items: center;
   background-color: #EDF6F9;
 }
 
@@ -125,5 +124,4 @@ button {
 footer {
   height: 10vh;
   text-align: center;
-  border-top: 1px solid #000;
 }
