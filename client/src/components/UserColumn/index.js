@@ -12,12 +12,23 @@ import { pluralize } from '../../utils/helpers';
 
 const UserColumn = () => {
 
+  const [content, setContent] = useState({username: '', questions: {}, votes: []})
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
 
+  // const GetUser = () => {
+  //   const userdata = useQuery(QUERY_ME);
+
+  // }
+
   const { loading, data: userData } = useQuery(QUERY_ME);
+
+  // useEffect(() => {
+  //   return userData
+  // }, [userData])
 
 
   if (loading) return 'Loading...'
@@ -39,7 +50,7 @@ const UserColumn = () => {
 
             <div className='mb-4'>
               {userData.me.votes.length
-                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("question", userData.me.votes.length)}!</p>
+                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("vote", userData.me.votes.length)}!</p>
                 : <p className='text-lg'>You haven't cast any votes yet! Get out there and help people get their answers!</p>}
             </div>
 
