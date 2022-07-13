@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 import { useQuery } from '@apollo/client';
@@ -18,6 +18,7 @@ const UserColumn = () => {
   };
 
   const { loading, data: userData } = useQuery(QUERY_ME);
+
 
   if (loading) return 'Loading...'
 
