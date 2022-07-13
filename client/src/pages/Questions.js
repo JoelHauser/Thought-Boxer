@@ -13,7 +13,7 @@ const Questions = () => {
     }
 
     return(
-        <div className='questionText rounded-b-lg'>
+        <div className='questionText'>
             {questions &&
                 questions.map(question => (
                     <div className='p-2 w-10/12 mx-3 my-1' key={question._id}>
@@ -22,9 +22,8 @@ const Questions = () => {
                                 pathname:`/question/${question._id}`
                             }}
                         >
-                            <p className='text-left text-lg'>{question.title}</p>
-                            <p className='text-left text-sm text-blue-00'>Votes: {question.voteA + question.voteB}</p>
-                            <p className='text-left text-sm text-blue-600'>{question.createdBy}</p>                   
+                            <p className='text-left text-xl mb-2'>{question.title}</p>
+                            <p className='text-left text-sm'>Votes: {question.voteA + question.voteB}</p>                  
                         </Link>
                     </div>
                 ))}
