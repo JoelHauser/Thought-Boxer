@@ -39,7 +39,7 @@ const QuestionForm = () => {
                 answerA: '',
                 answerB: '',
             });
-            navigate('/questions');
+            navigate('/');
         } catch (error) {
             console.error(error);
         }

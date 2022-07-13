@@ -22,7 +22,7 @@ function Login() {
         event.preventDefault();
 
         try {
-            const { data } = await login({variables: { ...formState },});
+            const { data } = await login({ variables: { ...formState }, });
             Auth.login(data.login.token);
         } catch (e) {
             console.error(e);
@@ -36,40 +36,42 @@ function Login() {
     };
 
     return (
-        <div className='flex flex-col items-center content-center w-full'>
-            <h1 className='w-full mb-4'>
-                Login to Thought Boxer:
-            </h1>
-            <form onSubmit={handleFormSubmit}>
-                <div className='form-box'>
-                    <label>Username</label>
-                <input
-                    className="form-input mx-1 text-center"
-                    placeholder="Username"
-                    name="username"
-                    type="username"
-                    id="username"
-                    value={formState.username}
-                    onChange={handleChange}
-                />
-                </div>
-                <div className='form-box'>
-                    <label>Password</label>
-                <input
-                    className="form-input mx-1 text-center"
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    id="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                />
-                </div>
-                <button className="btn w-1/4 d-block text-center border-2 rounded m-6" type="submit">
-                    Submit
-                </button>
-            </form>
-            {error && <div>Login failed</div>}
+        <div>
+            <div className='flex flex-col items-center content-center w-full'>
+                <h1 className='w-full my-12 text-center'>
+                    Login to Thought Boxer
+                </h1>
+                <form className='flex flex-col items-center w-1/2' onSubmit={handleFormSubmit}>
+                    <div className='form-box flex-col w-full'>
+                        <label className='mb-2'>Username</label>
+                        <input
+                            className="form-input text-center mb-4"
+                            placeholder="JohnDoe"
+                            name="username"
+                            type="username"
+                            id="username"
+                            value={formState.username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className='form-box flex-col w-full'>
+                        <label className='mb-2'>Password</label>
+                        <input
+                            className="form-input text-center mb-4"
+                            placeholder="Password12345"
+                            name="password"
+                            type="password"
+                            id="password"
+                            value={formState.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button className="btn w-1/4 text-center border-2 rounded m-6" type="submit">
+                        Login
+                    </button>
+                </form>
+                {error && <div>Login failed</div>}
+            </div>
         </div>
     )
 }
