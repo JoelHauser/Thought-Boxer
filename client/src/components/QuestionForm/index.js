@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_QUESTION } from '../../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 
 const QuestionForm = () => {
     const [formState, setFormState] = useState({ title: '', questionText: '', answerA: '', answerB: '' });
 
     const [addQuestion, { error }] = useMutation(ADD_QUESTION);
+
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -36,6 +39,7 @@ const QuestionForm = () => {
                 answerA: '',
                 answerB: '',
             });
+            navigate('/questions');
         } catch (error) {
             console.error(error);
         }
@@ -43,7 +47,7 @@ const QuestionForm = () => {
 
 
     return (
-        <div className='flex flex-col items-center mt-5 divide-y-2'>
+        <div className='flex flex-col items-center mt-5 w-full col-span-5'>
             <h1 className='text-2xl mb-2'>Share Your Thoughts</h1>
             <form className='w-3/5' onSubmit={handleFormSubmit}>
                 <div className='form-box'>
