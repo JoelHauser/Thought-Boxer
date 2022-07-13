@@ -48,9 +48,7 @@ function App() {
         <div className="app">
           <Header />
           <div className="grid grid-cols-7">
-            <div className="userColumn col-span-1">
-              <UserColumn />
-            </div>
+            <UserColumn />
 
             <div className="questionColumn col-span-6">
               <Routes>
