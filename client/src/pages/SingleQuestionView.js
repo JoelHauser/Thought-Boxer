@@ -58,13 +58,13 @@ const SingleQuestionView = () => {
     const hasVoted = () => {
         if (Object.values(userData.me.votes).includes(questionId)) {
             return(
-                <div>
+                <div className='thanksClass'>
                     Thanks for voting!
                 </div>
             )
         } else {
             return(
-                <div>
+                <div className='buttonYN'>
                     <button
                         onClick={() => {
                             addVoteA();
@@ -87,10 +87,10 @@ const SingleQuestionView = () => {
 
     return(
         <div>
-            <h2>{question.title}</h2>
-            <p>{question.questionText}</p>
+            <h2 className='questionTitle'>{question.title}</h2>
+            <p className='questionPtag'>{question.questionText}</p>
             <div>
-                    <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
                         <div className="bg-gray-500 ratioBar">
                             <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>

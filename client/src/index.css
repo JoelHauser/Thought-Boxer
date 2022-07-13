@@ -129,4 +129,39 @@ footer {
 .questionText {
   overflow: auto;
   height: 80vh;
+  
+}
+
+.questionTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionPtag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.precentClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thanksClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonYN {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionsMap {
+  display: flex;
 }
