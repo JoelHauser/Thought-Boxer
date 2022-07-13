@@ -42,7 +42,7 @@ function Login() {
             </h1>
             <form onSubmit={handleFormSubmit}>
                 <div className='form-box'>
-                    <label>Please enter your username</label>
+                    <label>Username</label>
                     <input
                         className="form-input mx-1 text-center"
                         placeholder="Username"
@@ -54,7 +54,7 @@ function Login() {
                     />
                 </div>
                 <div className='form-box'>
-                    <label>Please enter your password</label>
+                    <label>Password</label>
                     <input
                         className="form-input mx-1 text-center"
                         placeholder="Password"

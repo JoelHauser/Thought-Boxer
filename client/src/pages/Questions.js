@@ -12,17 +12,19 @@ const Questions = () => {
     }
 
     return(
-        <div>
+        <div className='questionText'>
             {questions &&
                 questions.map(question => (
-                    <div key={question._id}>
+                    <div className='p-2 border border-solid border-black rounded w-10/12 mx-3 my-1' key={question._id}>
                         <Link
                             to={{
                                 pathname:`/question/${question._id}`
                             }}
 
                         >
-                            <p>{question.title}</p>                            
+                            <p className='text-left text-lg'>{question.title}</p>
+                            <p className='text-left text-sm text-blue-00'>Votes: {question.voteA + question.voteB}</p>
+                            <p className='text-left text-sm text-blue-600'>{question.createdBy}</p>                   
                         </Link>
                     </div>
                 ))}
