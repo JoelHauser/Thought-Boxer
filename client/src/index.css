@@ -8,6 +8,12 @@
     #edf6f9 body
     #ffddd2 */
 
+html {
+}
+
+.app{
+  height: 80vh;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,10 +21,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.app {
-  min-height: 100vh;
 }
 
 code {
@@ -32,27 +34,13 @@ header {
 }
 
 .userColumn {
-  min-height: 80vh;
-  background-color: #83c5be;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profilecontainer {
-  background-color: #83c5be;
-}
-.userColumn h1 {
-  background-color: #83c5be;
-  
-}
-
-.userColumn p {
   background-color: #83c5be;
 }
 
-.userColumn a {
-  background-color: #83c5be;
+.profileContainer {
+  background-color: #FFDDD2;
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .questionColumn {
