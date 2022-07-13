@@ -1,11 +1,15 @@
+@import "../../global.scss";
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $bodyColor;
     
     h2 {
-        font-size: 100px;
+        font-size: 85px;
         font-weight: 300;
         font-family: 'Roboto', sans-serif;
+        background-color: $bodyColor;
     }
 }
