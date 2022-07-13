@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
@@ -9,8 +9,6 @@ import Auth from '../utils/auth';
 const SingleQuestionView = () => {
     const { id: questionId } = useParams();
     const { id: voteId } = useParams();
-
-    const [voteCheck, setVoteCheck] = useState(false);
 
     const [addVoteA] = useMutation(ADD_VOTE, {
         variables: {
@@ -61,27 +59,27 @@ const SingleQuestionView = () => {
         if (Object.values(userData.me.votes).includes(questionId)) {
             return(
                 <div>
-                    <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
-                    <div className="barContainer">
-                        <div className="bg-gray-500 ratioBar">
-                            <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
-                        </div>
-                    </div>
+                    Thanks for voting!
                 </div>
             )
         } else {
             return(
                 <div>
                     <button
-                    onClick={addVoteA}
+                        onClick={() => {
+                            addVoteA();
+                            window.location.reload(false);
+                        }}
                     >{question.answerA}
                     </button>
                     <button
-                        onClick={addVoteB}
-                        >{question.answerB}
+                        onClick={() => {
+                            addVoteB();
+                            window.location.reload(false);
+                        }}
+                    >{question.answerB}
                     </button>
                 </div>
-                
             )
         }
     }
@@ -91,11 +89,22 @@ const SingleQuestionView = () => {
         <div>
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
+            <div>
+                    <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+                    <div className="barContainer">
+                        <div className="bg-gray-500 ratioBar">
+                            <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                        </div>
+                    </div>
+                </div>
+                
             {Auth.loggedIn() ? (
-                hasVoted()
+                    
+                    hasVoted()
+
             ) : (
 
-                <p>Log in or sign up to cast your vote and see current results!</p>
+                <p>Log in or sign up to cast your vote!</p>
             )}
             
         </div>
