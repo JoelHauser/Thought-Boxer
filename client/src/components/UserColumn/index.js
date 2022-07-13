@@ -45,7 +45,7 @@ const UserColumn = () => {
             <div>
               {userData.me.questions.length
                 ? <div>{userData.me.questions.map(question => (
-                  <div className='mb-3' key={question._id}>
+                  <div className='' key={question._id}>
                     <Link to={{ pathname: `/question/${question._id}` }}>
                       <p className='text-lg'>{question.title}</p>
                     </Link>
