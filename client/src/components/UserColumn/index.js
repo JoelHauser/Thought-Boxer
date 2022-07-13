@@ -19,7 +19,7 @@ const UserColumn = () => {
 
     //
     return (
-      <div className="userColumn col-span-1 flex">
+      <div className="userColumn col-span-2 flex">
         {Auth.loggedIn() ? (
           <>
             <div className="flex flex-col profilecontainer justify-items-start">
