@@ -8,6 +8,12 @@
     #edf6f9 body
     #ffddd2 */
 
+html {
+}
+
+.app{
+  height: 80vh;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,10 +21,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.app {
-  min-height: 100vh;
 }
 
 code {
@@ -29,40 +31,23 @@ code {
 header {
   text-align: center;
   height: 10vh;
-  border-bottom: 1px solid #000;
 }
 
 .userColumn {
-  border-right: solid 1px #000;
-  min-height: 80vh;
-  background-color: #ffddd2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.profilecontainer {
-  background-color: #ffddd2;
-}
-.userColumn h1 {
-  background-color: #ffddd2;
+  background-color: #83c5be;
 }
 
-.userColumn p {
-  background-color: #ffddd2;
-}
-
-.userColumn a {
-  background-color: #ffddd2;
+.profileContainer {
+  background-color: #FFDDD2;
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .questionColumn {
-  text-align: center;
+  align-items: center;
   background-color: #EDF6F9;
 }
 
-.questionText {
-  background-color: #EDF6F9;
-}
 
 label {
   display: flex;
@@ -73,7 +58,7 @@ label {
 
 .form-box {
   margin: 10px;
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -84,6 +69,7 @@ label {
   padding: 3px;
   border-radius: 5px;
 }
+
 
 button {
   border: 1px solid #000;
@@ -126,5 +112,21 @@ button {
 footer {
   height: 10vh;
   text-align: center;
-  border-top: 1px solid #000;
+}
+
+.bg-login {
+  background-image: url(../src/assets/images/boxer-login.svg);
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.bg-signup {
+  background-image: url(../src/assets/images/boxer-signup.png);
+}
+
+.questionText {
+  overflow: auto;
+  height: 80vh;
 }

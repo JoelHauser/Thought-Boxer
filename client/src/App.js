@@ -47,10 +47,10 @@ function App() {
       <Router>
         <div className="app">
           <Header />
-          <div className="grid grid-cols-7">
-            <UserColumn />
+          <div className="grid grid-cols-7 h-full">
+              <UserColumn />
 
-            <div className="questionColumn col-span-6">
+            <div className="col-span-5">
               <Routes>
                 <Route path="/" element={<Questions />} />
                 <Route path="/profile" element={<Profile />} />
