@@ -1,11 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./global.scss";
+
+/*  #006d77 
+    #83c5be header footer
+    #edf6f9 body
+    #ffddd2 */
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,7 +22,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -29,15 +35,47 @@ header {
 .userColumn {
   border-right: solid 1px #000;
   min-height: 80vh;
+  background-color: #ffddd2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilecontainer {
+  background-color: #ffddd2;
+}
+.userColumn h1 {
+  background-color: #ffddd2;
+}
+
+.userColumn p {
+  background-color: #ffddd2;
+}
+
+.userColumn a {
+  background-color: #ffddd2;
 }
 
 .questionColumn {
   text-align: center;
+  background-color: #EDF6F9;
 }
 
+.questionText {
+  background-color: #EDF6F9;
+}
+
+label {
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  margin: 0;
+}
 
 .form-box {
   margin: 10px;
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-input {
@@ -49,7 +87,6 @@ header {
 
 button {
   border: 1px solid #000;
-
 }
 
 .ratioBar {
@@ -75,11 +112,17 @@ button {
   display: inline-flex;
 }
 
-.resultPercent, .resultText {
-  position:relative;
+.resultPercent,
+.resultText {
+  position: relative;
   z-index: 9999;
 }
 
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 footer {
   height: 10vh;
   text-align: center;
