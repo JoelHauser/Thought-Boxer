@@ -25,12 +25,12 @@ const QuestionForm = () => {
 
         try {
             await addQuestion({
-                variables: { 
+                variables: {
                     title: formState.title,
                     questionText: formState.questionText,
                     answerA: formState.answerA,
                     answerB: formState.answerB
-                 }
+                }
             });
 
             setFormState({
@@ -39,7 +39,8 @@ const QuestionForm = () => {
                 answerA: '',
                 answerB: '',
             });
-            navigate('/');
+            navigate('/')
+            window.location.reload();
         } catch (error) {
             console.error(error);
         }
