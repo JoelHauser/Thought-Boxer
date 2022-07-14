@@ -50,7 +50,7 @@ function App() {
           <div className="grid grid-cols-7 h-full">
               <UserColumn />
 
-            <div className="col-span-5">
+            <div className="questionBox col-span-5">
               <Routes>
                 <Route path="/" element={<Questions />} />
                 <Route path="/profile" element={<Profile />} />

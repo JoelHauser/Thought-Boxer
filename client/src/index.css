@@ -137,6 +137,10 @@ footer {
   background-image: url(../src/assets/images/boxer-signup.png);
 }
 
+.questionBox {
+  background-color: #83c5be;
+}
+
 .questionText {
   overflow: auto;
   height: 80vh;
