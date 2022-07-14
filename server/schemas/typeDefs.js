@@ -23,8 +23,8 @@ type Question {
   questionText: String
   answerA: String
   answerB: String
-  voteA: Int
-  voteB: Int
+  voteA: Int!
+  voteB: Int!
 }
 
 type Query {

@@ -40,6 +40,7 @@ const SingleQuestionView = () => {
     const question = data?.question || {};
 
     let percentageA = Math.round (question.voteA / (question.voteA + question.voteB) * 100 );
+
     
     if (percentageA < 0) {
         percentageA = 0
@@ -54,6 +55,10 @@ const SingleQuestionView = () => {
     if (loading) {
         return <div>Loading...</div>
     }
+
+    if (question.answerA === null) question.answerA = "0";
+    if (question.answerB === "NaN") question.answerB = "0";
+
 
     const hasVoted = () => {
         if (Object.values(userData.me.votes).includes(questionId)) {
@@ -84,19 +89,31 @@ const SingleQuestionView = () => {
         }
     }
 
-
-    return(
-        <div className="questionText flex flex-col justify-evenly content-start rounded-2xl bg-white">
-            <h2 className='questionTitle font-black'>' {question.title} '</h2>
-            <p className='questionPtag justify-center'>{question.questionText}</p>
-            <div className='rounded'>
-                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+    const firstQuestion = () => {
+        if (question.voteA === 0 && question.voteB === 0) {
+            return (
+                <p className="precentClass text-2xl">Be the first to vote!</p>
+            )
+        } else {
+            return (
+                <div className='rounded'>
+                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}.</p> <p className='precentClass'>{percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
                         <div className="bg-gray-500 rounded-md ratioBar">
                             <div className="bg-blue-600 text-xs rounded-md font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
                         </div>
                     </div>
                 </div>
+            )
+        }
+    }
+
+
+    return(
+        <div className="questionText flex flex-col justify-evenly content-start rounded-2xl bg-white">
+            <h2 className='questionTitle font-black'>' {question.title} '</h2>
+            <p className='questionPtag justify-center'>{question.questionText}</p>
+            {firstQuestion()}
                 
             {Auth.loggedIn() ? (
                     
