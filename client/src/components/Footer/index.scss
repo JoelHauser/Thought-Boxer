@@ -13,15 +13,15 @@ footer {
     align-items: center;
 
     p {
+      display: flex;
       font-size: 20px;
       font-family: "Roboto", sans-serif;
       font-weight: 500;
-      background-color: $bodyColor;
       padding: 10px;
     }
   }
-  img {
-    background-color: $fleshyPink;
-    border-radius: 40px;
+
+  img:hover {
+    
   }
 }

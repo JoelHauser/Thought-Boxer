@@ -33,6 +33,8 @@ function Register() {
     };
 
     return (
+        <div className="questionText flex flex-col justify-evenly content-start  rounded-2xl bg-white">
+
         <div className='flex flex-col items-center content-center w-full'>
             <h1 className='w-full my-12 text-center'>
                 Sign up for Thought Boxer
@@ -62,11 +64,12 @@ function Register() {
                         onChange={handleChange}
                     />
                 </div>
-                <button className="btn w-1/4 d-block text-center border-2 rounded m-6" type="submit">
+                <button className="btn w-1/4 d-block text-center border-2 rounded m-6 hover:bg-fleshypink" type="submit">
                     Sign Up
                 </button>
             </form>
             {error && <div>Signup failed</div>}
+        </div>
         </div>
     )
 }
