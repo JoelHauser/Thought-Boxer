@@ -12,11 +12,12 @@ const Questions = () => {
   }
 
   return (
+    <div className="aroundBox">
     <div className="questionText flex flex-wrap justify-evenly content-start">
       {questions &&
         questions.map((question) => (
           <div
-            className="p-2 w-1/3 mx-3 my-10 h-20 border-solid border-2 rounded-lg drop-shadow-lg"
+            className="p-2 w-1/3 mx-3 my-10  border-solid border-black border-2 rounded-lg drop-shadow-lg"
             key={question._id}
           >
             <Link
@@ -31,6 +32,7 @@ const Questions = () => {
             </Link>
           </div>
         ))}
+    </div>
     </div>
   );
 };
