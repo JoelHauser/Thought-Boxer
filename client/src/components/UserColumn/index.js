@@ -67,14 +67,15 @@ const UserColumn = () => {
             </div>
           </div>
 
-          <div className='flex flex-col text-center items-center'>
-            <Link className='mb-2 mt-8' to='/questionForm'>Ask a question!</Link>
+          <div className='flex columns-2  justify-center justify-evenly'>
             <Link className='mb-4' to='/questionForm'>
-              <img src={questionImg} alt='ask a question'></img>
+            <Link className='items-center ml-3' to='/questionForm'>Ask!</Link>
+              <img className='items-center' src={questionImg} alt='ask a question'></img>
             </Link>
 
             <a className='mb-2' href="/" onClick={logout}>
-              <img src={logoutImg} alt='logout'></img>
+            <Link className='items-center mr-2' to='/logout'>Logout</Link>
+              <img className='items-center' src={logoutImg} alt='logout'></img>
             </a>
           </div>
         </div>
