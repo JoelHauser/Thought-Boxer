@@ -86,14 +86,14 @@ const SingleQuestionView = () => {
 
 
     return(
-        <div>
-            <h2 className='questionTitle'>{question.title}</h2>
-            <p className='questionPtag'>{question.questionText}</p>
-            <div>
+        <div className="questionText flex flex-col justify-evenly content-start border border-black rounded-2xl bg-white">
+            <h2 className='questionTitle font-black'>' {question.title} '</h2>
+            <p className='questionPtag justify-center'>{question.questionText}</p>
+            <div className='rounded'>
                     <p className='precentClass'>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
-                        <div className="bg-gray-500 ratioBar">
-                            <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                        <div className="bg-gray-500 rounded-md ratioBar">
+                            <div className="bg-blue-600 text-xs rounded-md font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
                         </div>
                     </div>
                 </div>
