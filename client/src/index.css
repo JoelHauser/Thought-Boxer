@@ -202,6 +202,8 @@ footer {
   justify-content: center;
   font-weight: 900;
   margin-bottom: 5px;
+  padding: 0 200px;
+  text-align: center;
 }
 
 .precentClass {
