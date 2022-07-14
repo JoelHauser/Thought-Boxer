@@ -56,7 +56,13 @@ const SingleQuestionView = () => {
         return <div>Loading...</div>
     } 
 
-    let myVotes = (Object.values(userData.me.votes).includes(questionId))
+    function myVotes() {
+        if (Object.values(userData.me.votes).includes(questionId)) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
 
     const checkForVote = () => {
         if (!question.voteA && !question.voteB) {
@@ -86,7 +92,7 @@ const SingleQuestionView = () => {
     
     }
     function hasVoted() {
-        if (myVotes) {
+        if (myVotes() === true) {
             return(
                 <div className='thanksClass'>
                     Thanks for voting!
