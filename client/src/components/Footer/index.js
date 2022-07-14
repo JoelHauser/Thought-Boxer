@@ -5,7 +5,8 @@ function Footer() {
     return(
         <footer>
             <div>
-                <h3>Hello</h3>
+                <p>From the creators of:</p>
+            <img src='' alt=''>Foxy</img>
             </div>
         </footer>
     )
