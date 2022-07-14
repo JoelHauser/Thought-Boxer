@@ -57,8 +57,8 @@ const SingleQuestionView = () => {
             </button>
             <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
             <div className="barContainer">
-                <div className="bg-gray-500 ratioBar">
-                    <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                <div className="bg-gray-500 ratioBar ratioBarFull" style={{width: 500}}>
+                    <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar" style={{width:ratioWidth}}></div>
                 </div>
             </div>
         </div>
