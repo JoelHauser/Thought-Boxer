@@ -11,12 +11,24 @@ header {
     font-weight: 300;
     font-family: "Roboto", sans-serif;
     display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: $bodyColor;
+    border: none;
+    h2 {
+        font-size: 50px;
+        font-weight: 300;
+        font-family: 'Pacifico', cursive;
+        display: flex;
+
   }
   div {
       display: flex;
       align-items: center;
       justify-content: center;
     img {
+
         
     }
   }
