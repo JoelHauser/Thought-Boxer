@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend:{
       colors: {
-        "fleshypink": "#FFDDD2"
+        "fleshypink": "#FFDDD2",
+        "blue": "#0000FF",
+        "red": "#ea6178"
       },
       
     }

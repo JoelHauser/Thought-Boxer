@@ -131,6 +131,7 @@ button {
   position:absolute;
   background-color: blue;
   color:white;
+  height: 50px;
 }
 
 .barContainer {
