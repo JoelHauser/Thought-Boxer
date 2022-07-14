@@ -50,7 +50,7 @@ const UserColumn = () => {
 
             <div className='mb-4'>
               {userData.me.votes.length
-                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("vote", userData.me.votes.length)}!</p>
+                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("poll", userData.me.votes.length)}!</p>
                 : <p className='text-lg'>You haven't cast any votes yet! Get out there and help people get their answers!</p>}
             </div>
 

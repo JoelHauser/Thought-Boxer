@@ -61,6 +61,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .form-input {
@@ -70,9 +71,19 @@ label {
   border-radius: 5px;
 }
 
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 
 button {
   border: 1px solid #000;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .ratioBar {
@@ -129,4 +140,55 @@ footer {
 .questionText {
   overflow: auto;
   height: 80vh;
+  
+}
+
+.questionTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.questionPtag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.precentClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  font-style: bold;
+}
+
+.thanksClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonYN {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  padding: 10px 10px;
+  
+}
+
+.questionsMap {
+  display: flex;
+}
+
+.loginClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
