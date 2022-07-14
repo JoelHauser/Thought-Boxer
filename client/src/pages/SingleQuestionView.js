@@ -27,7 +27,7 @@ const SingleQuestionView = () => {
         }
     })
 
-    const { data: userData } = useQuery(QUERY_ME);
+    const { loadingUser, data: userData } = useQuery(QUERY_ME);
 
     
 
@@ -55,6 +55,10 @@ const SingleQuestionView = () => {
     if (loading) {
         return <div>Loading...</div>
     } 
+
+    if (loadingUser) {
+        return <div>Loading...</div>
+    }
 
     function myVotes() {
         if (Object.values(userData.me.votes).includes(questionId)) {
