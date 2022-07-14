@@ -145,11 +145,13 @@ footer {
 
 .questionBox {
   background-color: #83c5be;
+  
 }
 
 .questionText {
   overflow: auto;
   height: 80vh;
+  margin-right: 50px;
   
 }
 

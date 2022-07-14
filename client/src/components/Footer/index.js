@@ -10,7 +10,7 @@ function Footer() {
         <p>From the developers of: </p>
       </div>
       <a href="https://joelhauser.github.io/Foxy/">
-      <img src={foxy} height={70} width={70} alt="foxy" />
+        <img src={foxy} height={70} width={70} alt="foxy" />
       </a>
       <div>
         <p>and</p>
