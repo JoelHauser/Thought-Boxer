@@ -7,6 +7,7 @@ import { ADD_VOTE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SingleQuestionView = () => {
+
     const { id: questionId } = useParams();
     const { id: voteId } = useParams();
 
@@ -17,8 +18,6 @@ const SingleQuestionView = () => {
         },
     });
 
-
-
     const [addVoteB] = useMutation(ADD_VOTE, {
         variables: {
             voteType: 'voteB',
@@ -27,11 +26,6 @@ const SingleQuestionView = () => {
     })
 
     const { data: userData } = useQuery(QUERY_ME);
-
-    
-
-    
-
 
     const { loading, data } = useQuery(QUERY_QUESTION, {
         variables: { id: questionId }
@@ -48,8 +42,7 @@ const SingleQuestionView = () => {
     }
     let percentageB = (100 - percentageA) 
     const ratioWidth = (percentageA * 5);
-    // create const for ratiobar width
-    // create new formula for width
+    let totalVotes = (question.voteA + question.voteB)
 
     if (loading) {
         return <div>Loading...</div>
@@ -58,9 +51,11 @@ const SingleQuestionView = () => {
     console.log(ratioWidth)
 
     const hasVoted = () => {
+        <p>This questions current has {totalVotes} votes.</p>
         if (Object.values(userData.me.votes).includes(questionId)) {
             return(
                 <div>
+                    
                     Thanks for voting!
                 </div>
             )
@@ -70,14 +65,12 @@ const SingleQuestionView = () => {
                     <button
                         onClick={() => {
                             addVoteA();
-                            window.location.reload(false);
                         }}
                     >{question.answerA}
                     </button>
                     <button
                         onClick={() => {
                             addVoteB();
-                            window.location.reload(false);
                         }}
                     >{question.answerB}
                     </button>
@@ -93,17 +86,17 @@ const SingleQuestionView = () => {
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
             <div>
-                    <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
-                    <div className="barContainer">
-                        <div className="bg-gray-500 ratioBar"><span className="resultPercent float-right percentageB text-5xl">{percentageB}</span>
-                            <div className="bg-blue-600 text-5xl text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth}}><span className="percentageA resultPercent float-left">{percentageA}</span></div>
-                        </div>
+                <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+                <div className="barContainer">
+                    <div className="bg-gray-500 ratioBar"><span className="resultPercent float-right percentageB text-5xl">{percentageB}</span>
+                        <div className="bg-blue-600 text-5xl text-blue-100 text-center ratioBar ratioBarFull" style={{width:ratioWidth}}><span className="percentageA resultPercent float-left">{percentageA}</span></div>
                     </div>
                 </div>
+            </div>
                 
             {Auth.loggedIn() ? (
                     
-                    hasVoted()
+                hasVoted()
 
             ) : (
 
