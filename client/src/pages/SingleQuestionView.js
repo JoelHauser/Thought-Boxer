@@ -64,19 +64,19 @@ const SingleQuestionView = () => {
                 <div>
                 <h2 className='questionTitle font-black'>' {question.title} '</h2>
             <p className='questionPtag justify-center'>{question.questionText}</p>
-                <p>Be the first to vote!</p>
+                <p className="precentClass margin-top: 100px text-5xl">Be the first to vote!</p>
                 </div>
             )
         } else {
             return (
                 <div>
-                <h2 className='questionTitle font-black'>' {question.title} '</h2>
+                <h2 className='questionTitle font-black'>{question.title} </h2>
             <p className='questionPtag justify-center'>{question.questionText}</p>
             <div className='rounded'>
-                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
+                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}.</p><p className='precentClass'>{percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
-                        <div className="bg-gray-500 rounded-md ratioBar">
-                            <div className="bg-blue-600 text-xs rounded-md font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                        <div className="rounded-md text-5xl ratioBar"><span className="float-right resultPercent">{percentageB}</span>
+                            <div className="rounded-md text-5xl p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent float-left">{percentageA}</span></div>
                         </div>
                     </div>
                 </div>
