@@ -5,8 +5,6 @@ import { useMutation } from '@apollo/client';
 import { QUERY_QUESTION, QUERY_ME } from '../utils/queries';
 import { ADD_VOTE } from '../utils/mutations';
 import Auth from '../utils/auth';
-import VoteResponse from '../components/VoteResponse';
-import VoteTake from '../components/VoteTake';
 
 const SingleQuestionView = () => {
     const { id: questionId } = useParams();
@@ -31,32 +29,36 @@ const SingleQuestionView = () => {
         },
     });
 
-    const [view, setView] = useState(false);
-    const clickHandlerA = () => {
-        addVoteA()
-        setView(true);
+    const { data: userData } = useQuery(QUERY_ME);
+    function checkVote() {
+        if (Object.values(userData.me.votes).includes(questionId)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    console.log(checkVote)
+    const [view, setView] = useState(checkVote ? false : true);
+    const clickHandlerA = () => {
+        
+        setView(true)
+    }
+    console.log(view);
     const clickHandlerB = () => {
         addVoteB()
-        setView(true);
+        setView(true)
     }
 
     
+    // (Object.values(userData.me.votes).includes(questionId)
 
-    const { data: userData } = useQuery(QUERY_ME);
-
-    
 
     
 
     let percentageA = Math.round (question.voteB / (question.voteA + question.voteB) * 100 );
     
-    if (percentageA < 0) {
-        percentageA = 0
-    } else if  (percentageA > 100) {
-        percentageA = 100
-    }
+    
     let percentageB = (100 - percentageA) 
     const ratioWidth = (percentageA * 5);
     // let totalVotes = (question.voteA + question.voteB)
@@ -91,6 +93,7 @@ const SingleQuestionView = () => {
                         <button
                             onClick={() => {
                                 clickHandlerA()
+                                addVoteA()
                             }}
                         >{question.answerA}
                         </button>
