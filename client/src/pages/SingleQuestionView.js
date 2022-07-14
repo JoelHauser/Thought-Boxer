@@ -103,14 +103,14 @@ const SingleQuestionView = () => {
                 <div>
                     {show ?
                 <div className='buttonYN'>
-                    <button
+                    <button className='hover:bg-blue'
                         onClick={() => {
                             addVoteA();
                             setShow(false)
                         }}
                     >{question.answerA}
                     </button>
-                    <button
+                    <button className='hover:bg-red'
                         onClick={() => {
                             addVoteB();
                             setShow(false)
