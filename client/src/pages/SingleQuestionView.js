@@ -75,8 +75,8 @@ const SingleQuestionView = () => {
             <div className='rounded'>
                     <p className='precentClass'>{percentageA}% chose answer {question.answerA}.</p><p className='precentClass'>{percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
-                        <div className="rounded-md text-5xl ratioBar"><span className="float-right resultPercent">{percentageB}</span>
-                            <div className="rounded-md text-5xl p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent float-left">{percentageA}</span></div>
+                        <div className="rounded-md text-5xl ratioBar"><span className="float-right resultPercent">{percentageB}%</span>
+                            <div className="rounded-md text-5xl p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent float-left">{percentageA}%</span></div>
                         </div>
                     </div>
                 </div>
