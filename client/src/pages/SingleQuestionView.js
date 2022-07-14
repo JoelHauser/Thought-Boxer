@@ -27,7 +27,7 @@ const SingleQuestionView = () => {
         }
     })
 
-    const { data: userData } = useQuery(QUERY_ME);
+    const { loadingUser, data: userData } = useQuery(QUERY_ME);
 
     
 
@@ -52,9 +52,10 @@ const SingleQuestionView = () => {
     // create const for ratiobar width
     // create new formula for width
 
-    if (loading) {
+    while (loading && loadingUser) {
         return <div>Loading...</div>
     } 
+
 
     function myVotes() {
         if (Object.values(userData.me.votes).includes(questionId)) {
