@@ -39,7 +39,7 @@ const SingleQuestionView = () => {
 
     const question = data?.question || {};
 
-    let percentageA = Math.round( (question.voteA - question.voteB) / ( (question.voteA + question.voteB) / 2 ) * 100 );
+    let percentageA = Math.round (question.voteA / (question.voteA + question.voteB) * 100 );
     
     if (percentageA < 0) {
         percentageA = 0
