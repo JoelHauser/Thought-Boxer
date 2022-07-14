@@ -86,7 +86,7 @@ const SingleQuestionView = () => {
 
 
     return(
-        <div className="questionText flex flex-col justify-evenly content-start border border-black rounded-2xl bg-white">
+        <div className="questionText flex flex-col justify-evenly content-start rounded-2xl bg-white">
             <h2 className='questionTitle font-black'>' {question.title} '</h2>
             <p className='questionPtag justify-center'>{question.questionText}</p>
             <div className='rounded'>

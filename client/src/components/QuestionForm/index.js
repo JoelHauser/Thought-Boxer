@@ -48,7 +48,7 @@ const QuestionForm = () => {
 
 
     return (
-        <div className='flex flex-col items-center mt-5 w-full col-span-5'>
+        <div className='flex flex-col items-center mt-5  col-span-5 questionText rounded-2xl'>
             <h1 className='text-2xl mb-2 underline'>Share Your Thoughts</h1>
             <form className='w-2/3 flex flex-col' onSubmit={handleFormSubmit}>
                 <div className='form-box'>
@@ -105,7 +105,7 @@ const QuestionForm = () => {
                     />
                 </div>
                 <div className='submitBtn'>
-                <button className='px-2 py-1 rounded flex item-center' type='submit'>
+                <button className='px-2 py-1 rounded flex item-center hover:bg-fleshypink' type='submit'>
                     Submit
                 </button>
                 </div>

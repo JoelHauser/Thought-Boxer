@@ -9,7 +9,6 @@ import questionImg from '../../assets/images/ask-question-50.png'
 import logoutImg from '../../assets/images/logout-50.png';
 import { pluralize } from '../../utils/helpers';
 
-
 const UserColumn = () => {
 
   const [content, setContent] = useState({username: '', questions: {}, votes: []})

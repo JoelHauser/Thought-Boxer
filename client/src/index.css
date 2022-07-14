@@ -5,7 +5,7 @@
 
 /*  #006d77 
     #83c5be header footer
-    #edf6f9 body
+    ##D3D3DA body
     #ffddd2 */
 
 html {
@@ -152,6 +152,7 @@ footer {
   overflow: auto;
   height: 80vh;
   margin-right: 50px;
+  background-color: #D3D3DA;
   
 }
 

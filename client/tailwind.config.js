@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend:{
+      colors: {
+        "fleshypink": "#FFDDD2"
+      },
+      
+    }
   },
   plugins: [
     require('tw-elements/dist/plugin')

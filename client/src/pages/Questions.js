@@ -12,11 +12,11 @@ const Questions = () => {
   }
 
   return (
-    <div className="questionText flex flex-wrap justify-evenly content-start border rounded-xl bg-white">
+    <div className="questionText flex flex-wrap justify-evenly content-start  rounded-2xl bg-white">
       {questions &&
         questions.map((question) => (
           <div
-            className="flex items-center p-2 w-1/3 mx-3 my-10 border-solid border-2 rounded-lg drop-shadow-lg"
+            className="flex items-center p-2 w-1/3 mx-3 my-10 border-solid border-2 border-black rounded-lg drop-shadow-2xl"
             key={question._id}
           >
             <Link
@@ -24,8 +24,8 @@ const Questions = () => {
                 pathname: `/question/${question._id}`,
               }}
             >
-              <p className="text-left text-xl mb-2">{question.title}</p>
-              <p className="text-left text-sm">
+              <p className="text-left text-xl mb-2 font-semibold">{question.title}</p>
+              <p className="text-left text-sm font-medium">
                 Votes: {question.voteA + question.voteB}
               </p>
             </Link>
