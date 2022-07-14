@@ -49,8 +49,8 @@ const QuestionForm = () => {
 
     return (
         <div className='flex flex-col items-center mt-5 w-full col-span-5'>
-            <h1 className='text-2xl mb-2'>Share Your Thoughts</h1>
-            <form className='w-3/5' onSubmit={handleFormSubmit}>
+            <h1 className='text-2xl mb-2 underline'>Share Your Thoughts</h1>
+            <form className='w-2/3 flex flex-col' onSubmit={handleFormSubmit}>
                 <div className='form-box'>
                     <label>Describe your dilemma</label>
                     <input
@@ -75,10 +75,10 @@ const QuestionForm = () => {
                         required
                         onChange={handleChange}
                         value={formState.questionText}
-                        rows={7}
+                        rows={5}
                     />
                 </div>
-                <div className='form-box'>
+                <div className='form-box '>
                     <label>What is your side of the story?</label>
                     <input
                         className='form-input'
@@ -104,9 +104,11 @@ const QuestionForm = () => {
                         value={formState.answerB}
                     />
                 </div>
-                <button className='px-2 py-1 rounded' type='submit'>
+                <div className='submitBtn'>
+                <button className='px-2 py-1 rounded flex item-center' type='submit'>
                     Submit
                 </button>
+                </div>
             </form>
             {error && <h1>Something went wrong.</h1>}
         </div>
