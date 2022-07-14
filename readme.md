@@ -31,7 +31,11 @@ Once your account is created, you'll be able to view the different questions and
 
 <img src="./client/src/assets/images/readmeresults.jpg" alt="Results picture" height="250"/>
 
-When you are signed in, you'll have a new sidebar that will show your current questions, as well as enable you to make new questions.
+When you are signed in, you'll have a new sidebar that will show your current questions, as well as enable you to make new questions. Use this area if you wish to create a new question. When you create a new question, you will be asked for some information that designates how others will view it. You will be asked for a title, more explanation as to the situation, and two viewpoints that users can vote on. After you submit, you will be able to view your question in the list of questions that populate. Also, in your user area, you'll be able to see how many votes have been casted on your question.
+
+<img src="./client/src/assets/images/readmeuser.jpg" alt="User screen picture" height="250"/>
+
+To log out, click the logout button, and you will be logged out from the site.
 
 # Credit
 
@@ -43,11 +47,7 @@ This project is covered under the gpl3.0 license. For more information, visit th
 
 # Contribute
 
-contribute
-
-# Tests
-
-test
+No contributions being sought out at this time.
 
 # Questions
 
