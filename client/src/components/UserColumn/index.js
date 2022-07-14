@@ -36,8 +36,8 @@ const UserColumn = () => {
     <div className="userColumn flex flex-wrap items-center justify-center col-span-2">
 
       {Auth.loggedIn() ? (
-        <div className="profileContainer flex flex-col justify-between h-3/4 w-3/4 rounded-md scrollbar" id="style-2">
-          <div className='mt-8 flex flex-col mx-4'>
+        <div className="profileContainer flex flex-col justify-between h-3/4 w-3/4 rounded-2xl">
+          <div className='mt-8 flex flex-col mx-4 scrollbar" id="style-2"'>
 
             <h1 className='text-2xl mb-4 text-center'>Whats on your mind, {userData.me.username}?</h1>
 
