@@ -96,6 +96,7 @@ button {
 
 .ratioBarFull {
   float: left;
+  position: absolute;
 }
 
 .barContainer {
@@ -108,7 +109,6 @@ button {
 
 .resultText {
   flex: auto;
-  float: right;
   display: inline-flex;
 }
 

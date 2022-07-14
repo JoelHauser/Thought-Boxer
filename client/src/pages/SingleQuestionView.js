@@ -39,7 +39,7 @@ const SingleQuestionView = () => {
 
     const question = data?.question || {};
 
-    let percentageA = Math.round( (question.voteA - question.voteB) / ( (question.voteA + question.voteB) / 2 ) * 100 );
+    let percentageA = Math.round (question.voteB / (question.voteA + question.voteB) * 100 );
     
     if (percentageA < 0) {
         percentageA = 0
@@ -54,6 +54,8 @@ const SingleQuestionView = () => {
     if (loading) {
         return <div>Loading...</div>
     }
+
+    console.log(ratioWidth)
 
     const hasVoted = () => {
         if (Object.values(userData.me.votes).includes(questionId)) {
@@ -87,13 +89,14 @@ const SingleQuestionView = () => {
 
     return(
         <div>
+            
             <h2>{question.title}</h2>
             <p>{question.questionText}</p>
             <div>
                     <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
                     <div className="barContainer">
-                        <div className="bg-gray-500 ratioBar">
-                            <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
+                        <div className="bg-gray-500 ratioBar"><span className="resultPercent float-right percentageB text-5xl">{percentageB}</span>
+                            <div className="bg-blue-600 text-5xl text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth}}><span className="percentageA resultPercent float-left">{percentageA}</span></div>
                         </div>
                     </div>
                 </div>
