@@ -9,7 +9,6 @@ import questionImg from '../../assets/images/ask-question-50.png'
 import logoutImg from '../../assets/images/logout-50.png';
 import { pluralize } from '../../utils/helpers';
 
-
 const UserColumn = () => {
 
   const [content, setContent] = useState({username: '', questions: {}, votes: []})
@@ -37,7 +36,7 @@ const UserColumn = () => {
     <div className="userColumn flex flex-wrap items-center justify-center col-span-2">
 
       {Auth.loggedIn() ? (
-        <div className="profileContainer flex flex-col justify-between h-3/4 w-3/4 rounded-md">
+        <div className="profileContainer flex flex-col justify-between h-3/4 w-3/4 rounded-md scrollbar" id="style-2">
           <div className='mt-8 flex flex-col mx-4'>
 
             <h1 className='text-2xl mb-4 text-center'>Whats on your mind, {userData.me.username}?</h1>
@@ -50,14 +49,14 @@ const UserColumn = () => {
 
             <div className='mb-4'>
               {userData.me.votes.length
-                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("vote", userData.me.votes.length)}!</p>
+                ? <p className='text-lg'>You have voted on {userData.me.votes.length} {pluralize("poll", userData.me.votes.length)}!</p>
                 : <p className='text-lg'>You haven't cast any votes yet! Get out there and help people get their answers!</p>}
             </div>
 
             <div>
               {userData.me.questions.length
-                ? <div>{userData.me.questions.map(question => (
-                  <div className='' key={question._id}>
+                ? <div className=''>{userData.me.questions.map(question => (
+                  <div className='border-solid border-2 border-black rounded-lg drop-shadow-lg my-2 p-2' key={question._id}>
                     <Link to={{ pathname: `/question/${question._id}` }}>
                       <p className='text-lg'>{question.title}</p>
                     </Link>

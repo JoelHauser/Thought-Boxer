@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
@@ -7,6 +7,7 @@ import { ADD_VOTE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SingleQuestionView = () => {
+    let [show, setShow] = useState(true);
     const { id: questionId } = useParams();
     const { id: voteId } = useParams();
 
@@ -39,7 +40,7 @@ const SingleQuestionView = () => {
 
     const question = data?.question || {};
 
-    let percentageA = Math.round( (question.voteA - question.voteB) / ( (question.voteA + question.voteB) / 2 ) * 100 );
+    let percentageA = Math.round (question.voteA / (question.voteA + question.voteB) * 100 );
     
     if (percentageA < 0) {
         percentageA = 0
@@ -53,32 +54,75 @@ const SingleQuestionView = () => {
 
     if (loading) {
         return <div>Loading...</div>
-    }
+    } 
 
-    const hasVoted = () => {
+    function myVotes() {
         if (Object.values(userData.me.votes).includes(questionId)) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+    const checkForVote = () => {
+        if (!question.voteA && !question.voteB) {
             return(
                 <div>
+                <h2 className='questionTitle font-black'>' {question.title} '</h2>
+            <p className='questionPtag justify-center'>{question.questionText}</p>
+                <p className="precentClass margin-top: 100px text-5xl">Be the first to vote!</p>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                <h2 className='questionTitle font-black'>{question.title} </h2>
+            <p className='questionPtag justify-center'>{question.questionText}</p>
+            <div className='rounded'>
+                    <p className='precentClass'>{percentageA}% chose answer {question.answerA}.</p><p className='precentClass'>{percentageB}% chose {question.answerB}.</p>
+                    <div className="barContainer">
+                        <div className="rounded-md text-5xl ratioBar"><span className="float-right resultPercent">{percentageB}%</span>
+                            <div className="rounded-md text-5xl p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}><span className="resultPercent float-left">{percentageA}%</span></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            )
+        }
+    
+    }
+    function hasVoted() {
+        if (myVotes() === true) {
+            return(
+                <div className='thanksClass'>
                     Thanks for voting!
                 </div>
             )
         } else {
             return(
                 <div>
+                    {show ?
+                <div className='buttonYN'>
                     <button
                         onClick={() => {
                             addVoteA();
-                            window.location.reload(false);
+                            setShow(false)
                         }}
                     >{question.answerA}
                     </button>
                     <button
                         onClick={() => {
                             addVoteB();
-                            window.location.reload(false);
+                            setShow(false)
                         }}
                     >{question.answerB}
                     </button>
+                </div>
+                : 
+                <div className='thanksClass'>
+                Thanks for voting!
+            </div>
+                } 
                 </div>
             )
         }
@@ -86,25 +130,16 @@ const SingleQuestionView = () => {
 
 
     return(
-        <div>
-            <h2>{question.title}</h2>
-            <p>{question.questionText}</p>
-            <div>
-                    <p>{percentageA}% chose answer {question.answerA}. {percentageB}% chose {question.answerB}.</p>
-                    <div className="barContainer">
-                        <div className="bg-gray-500 ratioBar">
-                            <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none ratioBar ratioBarFull" style={{width:ratioWidth }}></div>
-                        </div>
-                    </div>
-                </div>
-                
+        <div className="questionText flex flex-col justify-evenly content-start rounded-2xl bg-white">
+            
+                {checkForVote()}
             {Auth.loggedIn() ? (
-                    
+
                     hasVoted()
 
             ) : (
 
-                <p>Log in or sign up to cast your vote!</p>
+                <p className='loginClass'>Log in or sign up to cast your vote!</p>
             )}
             
         </div>
