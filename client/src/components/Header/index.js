@@ -10,7 +10,7 @@ function Header() {
         <h2>THOUGHT BOXER</h2>
       </Link>
       <Link to="/">
-        <img className="animate-bounce" src={image} alt=""/>
+        <img className="hover:animate-pulse" src={image} alt=""/>
         </Link>
     </header>
   );

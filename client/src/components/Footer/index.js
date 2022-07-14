@@ -10,13 +10,13 @@ function Footer() {
         <p>From the developers of: </p>
       </div>
       <a href="https://joelhauser.github.io/Foxy/">
-        <img className="animate-pulse" src={foxy} height={70} width={70} alt="foxy" />
+        <img className="hover:animate-pulse" src={foxy} height={70} width={70} alt="foxy" />
       </a>
       <div>
         <p>and</p>
       </div>
       <a href="https://fork-that-orc.herokuapp.com/">
-        <img className="animate-pulse" src={FtO} height={70} width={70} alt="FtO" />
+        <img className="hover:animate-pulse" src={FtO} height={70} width={70} alt="FtO" />
       </a>
     </footer>
   );
