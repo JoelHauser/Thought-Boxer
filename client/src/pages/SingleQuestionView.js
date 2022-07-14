@@ -108,6 +108,7 @@ const SingleQuestionView = () => {
                         onClick={() => {
                             addVoteA();
                             setShow(false)
+                            window.location.reload();
                         }}
                     >{question.answerA}
                     </button>
@@ -115,6 +116,7 @@ const SingleQuestionView = () => {
                         onClick={() => {
                             addVoteB();
                             setShow(false)
+                            window.location.reload();
                         }}
                     >{question.answerB}
                     </button>
