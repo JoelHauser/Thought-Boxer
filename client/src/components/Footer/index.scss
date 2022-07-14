@@ -17,7 +17,11 @@ footer {
       font-family: "Roboto", sans-serif;
       font-weight: 500;
       background-color: $bodyColor;
-      margin-left: 24rem;
+      padding: 10px;
     }
+  }
+  img {
+    background-color: $fleshyPink;
+    border-radius: 40px;
   }
 }
