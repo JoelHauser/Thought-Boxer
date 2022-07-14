@@ -13,10 +13,10 @@ const Questions = () => {
     }
 
     return(
-        <div className='questionText'>
+        <div className='questionText flex flex-wrap justify-around'>
             {questions &&
                 questions.map(question => (
-                    <div className='p-2 w-10/12 mx-3 my-1' key={question._id}>
+                    <div className='p-2 w-1/3 h-24 mx-3 my-1 border-solid border-2 rounded-lg drop-shadow-lg' key={question._id}>
                         <Link
                             to={{
                                 pathname:`/question/${question._id}`
