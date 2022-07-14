@@ -196,6 +196,8 @@ footer {
   align-items: center;
   margin-bottom: 5px;
   font-size: 30px;
+  padding: 0 200px;
+  text-align: center;
 }
 
 .questionPtag {
