@@ -78,6 +78,12 @@ label {
   
 }
 
+.aroundBox {
+background-image: url();
+border-radius: 10px;
+display: flex;
+background-color: #FFDDD2;
+}
 
 button {
   border: 1px solid #000;
