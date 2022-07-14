@@ -16,7 +16,7 @@ const Questions = () => {
       {questions &&
         questions.map((question) => (
           <div
-            className="p-2 w-1/3 mx-3 my-1 h-24 border-solid border-2 rounded-lg drop-shadow-lg"
+            className="p-2 w-1/2 mx-1 my-1 h-24 border-solid border-2 rounded-lg drop-shadow-lg"
             key={question._id}
           >
             <Link

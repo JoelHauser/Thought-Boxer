@@ -104,7 +104,7 @@ const SingleQuestionView = () => {
 
             ) : (
 
-                <p>Log in or sign up to cast your vote!</p>
+                <p className='loginClass'>Log in or sign up to cast your vote!</p>
             )}
             
         </div>
