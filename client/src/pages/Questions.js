@@ -12,7 +12,7 @@ const Questions = () => {
   }
 
   return (
-    <div className="questionText flex flex-wrap justify-evenly content-start border border-black rounded-2xl bg-white">
+    <div className="questionText flex flex-wrap justify-evenly content-start border rounded-l-xl bg-white">
       {questions &&
         questions.map((question) => (
           <div
