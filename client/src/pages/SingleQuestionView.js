@@ -52,13 +52,10 @@ const SingleQuestionView = () => {
     // create const for ratiobar width
     // create new formula for width
 
-    if (loading) {
+    while (loading && loadingUser) {
         return <div>Loading...</div>
     } 
 
-    if (loadingUser) {
-        return <div>Loading...</div>
-    }
 
     function myVotes() {
         if (Object.values(userData.me.votes).includes(questionId)) {
