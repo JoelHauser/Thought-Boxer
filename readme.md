@@ -1,8 +1,9 @@
 # Thought Boxer ![gpl3.0 License](https://img.shields.io/badge/license-gpl3.0-blue)
 
 # About
+![ThoughtBoxer](https://raw.githubusercontent.com/JoelHauser/runescapethree/main/client/src/assets/images/Thought%20Boxer.png)
 
-Thought Boxer is an application that you can use to weigh opinions on a given topic or situation in your life. If you want to settle a score, get advice, or have a little help in making a decision, thought boxer is an anonymous way to post those things online and have others weigh in. If you're looking to give your opinion, you're able to browse others questions and choose what you think the correct response is.
+Thought Boxer is an application that you can use to weigh opinions on a given topic or situation in your life. If you want to settle a score, get advice, or have a little help in making a decision, thought boxer is an anonymous way to post those things online and have others weigh in. If you're looking to give your opinion, you're able to browse others questions and choose what you think the correct response is!
 
 ## Table of Contents
 
